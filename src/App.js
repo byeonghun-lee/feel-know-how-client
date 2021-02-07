@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import cx from "classnames";
+
+import SideBar from "common/sideBar/SideBar";
+import LoginModal from "common/loginModal/LoginModal";
+import Routes from "Routes";
+
+import "./Reset.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         민정이 뭐하나?
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isLogin, setLogin] = useState(true);
+    return (
+        <BrowserRouter>
+            <div className="App">
+                {/* <LoginModal isLogin={isLogin} setLogin={setLogin} /> */}
+                <SideBar isLogin={isLogin} />
+                <div
+                    className={cx("main-contants", {
+                        "side-bar-visible": isLogin,
+                    })}
+                >
+                    <Routes />
+                </div>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
