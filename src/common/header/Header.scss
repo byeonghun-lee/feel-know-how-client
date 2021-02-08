@@ -1,0 +1,19 @@
+@import "styles";
+
+.main-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 1rem;
+
+    .header-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem;
+        color: $gray-500;
+        width: 2rem;
+        height: 2rem;
+        background-color: white;
+        border-radius: 50%;
+    }
+}

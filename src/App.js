@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import cx from "classnames";
 
 import SideBar from "common/sideBar/SideBar";
+import Header from "common/header/Header";
 import LoginModal from "common/loginModal/LoginModal";
 import Routes from "Routes";
 
@@ -20,6 +21,7 @@ function App() {
                         "side-bar-visible": isLogin,
                     })}
                 >
+                    <Header />
                     <Routes />
                 </div>
             </div>
