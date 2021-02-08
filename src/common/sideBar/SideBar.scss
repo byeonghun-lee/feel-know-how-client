@@ -1,8 +1,10 @@
 @import "styles";
 
 .side-bar {
+    $side-bar-right-padding: 2.5rem;
+
     background-color: white;
-    width: 25rem;
+    width: 20rem;
     height: 100%;
     transition-duration: 2s;
     margin-left: -23rem;
@@ -13,30 +15,62 @@
     }
 
     .title-area {
+        margin-top: 3rem;
         margin-bottom: 3rem;
 
         h1 {
-            font-size: 1.7rem;
+            font-size: 1.3rem;
             color: $gray-900;
-            padding-left: 2.7rem;
+            padding-left: $side-bar-right-padding;
         }
     }
 
     h2 {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         color: $gray-500;
         font-weight: 700;
-        padding: 0 2.7rem;
+        padding: 0 $side-bar-right-padding;
+    }
+
+    .main-box-area {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $gray-100;
+        border-radius: 1rem;
+        margin: 0 0.7rem;
+        margin-bottom: 2rem;
+        padding: 0.7rem;
+
+        .move-to-main-btn {
+            display: flex;
+            align-items: center;
+        }
+
+        .best-list-icon {
+            border-radius: 50%;
+            background-color: white;
+            padding: 4px;
+            color: $gray-700;
+            margin-right: 0.5rem;
+        }
+
+        h3 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: $gray-800;
+        }
+
+        .drop-down-btn {
+            color: $gray-600;
+        }
     }
 
     .category-item {
-        // display: flex;
-        // align-items: center;
-        // padding: 0.03rem 2rem;
         margin: 5px 0.7rem;
         color: $gray-500;
         font-weight: 600;
-        border-radius: 1rem;
+        border-radius: 1.1rem;
         cursor: pointer;
 
         &:hover {
@@ -48,7 +82,7 @@
             font-weight: 700;
 
             .active-icon {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .category-icon {
@@ -59,16 +93,16 @@
         .item-inner {
             display: flex;
             align-items: center;
-            padding: 0.03rem 2rem;
+            padding: 0.7rem 2rem;
         }
 
         p {
             margin-left: 1rem;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
         .category-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
     }
 
@@ -79,10 +113,10 @@
         transform: translateX(-50%);
         display: flex;
         align-items: center;
-        font-size: 1.5rem;
-        padding: 0.8rem 3rem;
+        font-size: 1rem;
+        padding: 0.7rem 3rem;
         border: none;
-        border-radius: 1.6rem;
+        border-radius: 1.2rem;
         background-color: $deep-purple-400;
         color: white;
         font-weight: 700;
@@ -90,7 +124,11 @@
 
         .add-drawer-icon {
             margin-right: 0.3rem;
-            font-size: 2rem;
+            font-size: 1.4rem;
+        }
+
+        &:hover {
+            background-color: $deep-purple-500;
         }
     }
 }

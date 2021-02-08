@@ -1,0 +1,87 @@
+@import "styles";
+
+.best-card-component {
+    background-color: white;
+    width: 20rem;
+    height: 12.4rem;
+    border-radius: 10px;
+    position: relative;
+    padding: 0.7rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    .corner-btn-area {
+        position: absolute;
+        top: 0.7rem;
+        right: 0.7rem;
+        color: $gray-400;
+
+        .corner-btn {
+            border-radius: 5px;
+
+            &:hover {
+                background-color: $gray-200;
+                color: $gray-700;
+            }
+        }
+
+        .corner-btn + .corner-btn {
+            margin-left: 5px;
+        }
+    }
+
+    .profile-thumbnail {
+        margin-top: 0.7rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: $yellow-300;
+        border-radius: 50%;
+    }
+
+    .drawer-title {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: $gray-800;
+        font-weight: 700;
+    }
+
+    .drawer-desc {
+        margin-top: 0.3rem;
+        font-size: 0.8rem;
+        color: $gray-600;
+    }
+
+    .bottom-area {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+    }
+
+    .star-area,
+    .fork-area {
+        display: flex;
+        align-items: center;
+
+        p {
+            font-size: 0.7rem;
+            color: $gray-600;
+            font-weight: 600;
+        }
+
+        .star-icon {
+            color: $yellow-500;
+            margin-right: 5px;
+        }
+
+        .fork-icon {
+            color: $gray-600;
+            font-size: 1.3rem;
+            margin-right: 5px;
+        }
+    }
+
+    .star-area {
+        margin-right: 1rem;
+    }
+}

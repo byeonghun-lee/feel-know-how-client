@@ -8,6 +8,8 @@ import KeyboardArrowRightRoundedIcon from "@material-ui/icons/KeyboardArrowRight
 import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
+import AccountBalanceRoundedIcon from "@material-ui/icons/AccountBalanceRounded";
+import UnfoldMoreRoundedIcon from "@material-ui/icons/UnfoldMoreRounded";
 
 import "./SideBar.scss";
 
@@ -30,6 +32,15 @@ const SideBar = ({ isLogin }) => {
                 <>
                     <div className="title-area">
                         <h1>hun's drawer</h1>
+                    </div>
+                    <div className="main-box-area">
+                        <Link to="/" className="move-to-main-btn">
+                            <div className="best-list-icon">
+                                <AccountBalanceRoundedIcon fontSize="small" />
+                            </div>
+                            <h3>Best Drawer</h3>
+                        </Link>
+                        {/* <UnfoldMoreRoundedIcon className="drop-down-btn" /> */}
                     </div>
                     <ul>
                         <li
