@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import cx from "classnames";
+
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import InboxIcon from "@material-ui/icons/Inbox";
 import AddTwoToneIcon from "@material-ui/icons/AddTwoTone";
@@ -8,8 +9,8 @@ import KeyboardArrowRightRoundedIcon from "@material-ui/icons/KeyboardArrowRight
 import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
-import AccountBalanceRoundedIcon from "@material-ui/icons/AccountBalanceRounded";
-import UnfoldMoreRoundedIcon from "@material-ui/icons/UnfoldMoreRounded";
+import StarRoundedIcon from "@material-ui/icons/StarRounded";
+// import UnfoldMoreRoundedIcon from "@material-ui/icons/UnfoldMoreRounded";
 
 import "./SideBar.scss";
 
@@ -36,7 +37,7 @@ const SideBar = ({ isLogin }) => {
                     <div className="main-box-area">
                         <Link to="/" className="move-to-main-btn">
                             <div className="best-list-icon">
-                                <AccountBalanceRoundedIcon fontSize="small" />
+                                <StarRoundedIcon />
                             </div>
                             <h3>Best Drawer</h3>
                         </Link>
