@@ -17,12 +17,14 @@ function App() {
                 {/* <LoginModal isLogin={isLogin} setLogin={setLogin} /> */}
                 <SideBar isLogin={isLogin} />
                 <div
-                    className={cx("main-contants", {
+                    className={cx("main-contents", {
                         "side-bar-visible": isLogin,
                     })}
                 >
                     <Header />
-                    <Routes />
+                    <div className="main-contents-body">
+                        <Routes />
+                    </div>
                 </div>
             </div>
         </BrowserRouter>
