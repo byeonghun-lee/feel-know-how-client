@@ -1,0 +1,43 @@
+@import "styles";
+
+.card-component {
+    margin: 1rem;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    width: 20rem;
+    height: 17rem;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .meta-img-area {
+        width: 100%;
+        height: 50%;
+        background-color: $gray-300;
+    }
+
+    .text-contents {
+        padding: 10px;
+        height: 50%;
+    }
+
+    .card-component-title {
+        margin-bottom: 3px;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: $gray-900;
+    }
+
+    .card-component-desc {
+        font-size: 0.9rem;
+        color: $gray-700;
+    }
+
+    .card-component-url {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.7rem;
+        color: $gray-400;
+    }
+}
