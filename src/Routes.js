@@ -11,15 +11,17 @@ export default () => (
         </Route>
         <Route path="/@:nickName">
             <Switch>
-                <Route exact path={`/@:nickName/new-card`}>
-                    <NewCard />
-                </Route>
                 <Route exact path={`/@:nickName/:drawerName`}>
                     <Drawer />
                 </Route>
             </Switch>
         </Route>
-        <Route path="/in-box" />
+        <Route exact path={`/new-card`}>
+            <NewCard />
+        </Route>
+        <Route path="/in-box">
+            <Drawer />
+        </Route>
         <Route path="/trash" />
         <Route path="/setting" />
     </Switch>
