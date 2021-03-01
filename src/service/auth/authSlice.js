@@ -6,16 +6,13 @@ const authSlice = createSlice({
     name: "auth",
     initialState: authObj,
     reducers: {
-        login(state, action) {
-            console.log("action:", action);
-        },
+        login(state, action) {},
         loginSuccess(state, action) {
             const { nickname } = action.payload;
-            console.log("actionSuccess:", action);
             state.info = { nickname };
         },
         loginFail(state, action) {
-            const { error } = action.payload;
+            const error = action.payload;
             state.loginError = error;
         },
     },

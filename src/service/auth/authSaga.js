@@ -7,8 +7,7 @@ function* loginSaga(action) {
         const loginResult = yield call(AuthAPI.login, action.payload);
         yield put(loginSuccess(loginResult.data));
     } catch (error) {
-        console.log("error:", error);
-        yield put(loginFail(error));
+        yield put(loginFail(error.message));
     }
 }
 
