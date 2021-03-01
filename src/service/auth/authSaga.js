@@ -1,6 +1,12 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as AuthAPI from "api/auth";
-import { login, loginSuccess, loginFail } from "service/auth/authSlice";
+import {
+    login,
+    loginSuccess,
+    loginFail,
+    checkLogin,
+    checkLoginFail,
+} from "service/auth/authSlice";
 
 function* loginSaga(action) {
     try {
@@ -11,6 +17,17 @@ function* loginSaga(action) {
     }
 }
 
+function* checkLoginSaga(action) {
+    try {
+        const checkLoginResult = yield call(AuthAPI.checkLogin);
+        yield put(loginSuccess(checkLoginResult.data));
+    } catch (error) {
+        localStorage.removeItem("user");
+        yield put(checkLoginFail(error.message));
+    }
+}
+
 export function* authSaga() {
     yield takeLatest(login, loginSaga);
+    yield takeLatest(checkLogin, checkLoginSaga);
 }

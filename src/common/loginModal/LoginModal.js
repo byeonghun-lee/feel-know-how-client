@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,18 +10,29 @@ import "./LoginModal.scss";
 
 import purple_backgound from "assets/image/purple_background.jpg";
 
-const LoginModal = ({ isLogin, setLogin }) => {
+const LoginModal = () => {
     const el = document.getElementById("modal-root");
     const dispatch = useDispatch();
     const { register, handleSubmit, setError, errors } = useForm();
+    const [loginLoading, handleLoading] = useState(false);
+
+    const user = useSelector(({ auth }) => auth.info);
     const loginError = useSelector(({ auth }) => auth.loginError);
+    const needLogin = useSelector(({ auth }) => auth.needLogin);
 
     const onLogin = (data) => {
         dispatch(login({ id: data.id, password: data.password }));
     };
 
     useEffect(() => {
-        console.log("loginError:", loginError);
+        if (user) {
+            handleLoading(true);
+            console.log("user:", user);
+            localStorage.setItem("user", JSON.stringify(user));
+        }
+    }, [user]);
+
+    useEffect(() => {
         if (loginError) {
             setError("loginError", {
                 message: "아이디 혹은 비밀번호를 확인해주세요.",
@@ -29,21 +40,33 @@ const LoginModal = ({ isLogin, setLogin }) => {
         }
     }, [loginError]);
 
+    useEffect(() => {
+        if (needLogin) {
+            handleLoading(false);
+        }
+    }, [needLogin]);
+
     return createPortal(
         <>
-            <div className={cx("modal-wrapper", { "is-logined": isLogin })}>
-                <div className={cx("login-modal", { "is-logined": isLogin })}>
+            <div
+                className={cx("modal-wrapper", { "is-logined": loginLoading })}
+            >
+                <div
+                    className={cx("login-modal", {
+                        "is-logined": loginLoading,
+                    })}
+                >
                     <div
                         className="title-area"
                         style={{ backgroundImage: `url(${purple_backgound})` }}
                     >
-                        {isLogin ? (
+                        {loginLoading ? (
                             <h1 className="loading-text">Loading...</h1>
                         ) : (
                             <h1>Oh My Drawer</h1>
                         )}
                     </div>
-                    {!isLogin && (
+                    {!loginLoading && (
                         <>
                             <form
                                 onSubmit={handleSubmit(onLogin)}
