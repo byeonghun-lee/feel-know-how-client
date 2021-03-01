@@ -2,6 +2,10 @@
 
 * {
     box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 html {
@@ -33,6 +37,8 @@ p {
 }
 
 button {
+    cursor: pointer;
+
     &:focus {
         outline: 0;
     }
