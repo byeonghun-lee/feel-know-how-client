@@ -5,6 +5,6 @@ client.defaults.baseURL =
     process.env.NODE_ENV === "development"
         ? "/"
         : "https://api.ohmydrawer.com/";
-client.defaults.withCredentials = true;
+client.defaults.withCredentials = "include";
 
 export default client;

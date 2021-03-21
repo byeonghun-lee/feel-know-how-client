@@ -45,33 +45,34 @@ const SideBar = ({ isLogin }) => {
                         {/* <UnfoldMoreRoundedIcon className="drop-down-btn" /> */}
                     </div>
                     <ul>
-                        {drawerList.length &&
-                            drawerList.map((drawer, index) => (
-                                <li
-                                    key={index}
-                                    className={cx("category-item", {
-                                        active: activeItem === drawer._id,
-                                    })}
-                                >
-                                    <Link
-                                        to={`/@${nickname}/${drawer.name}`}
-                                        className="item-inner"
-                                        onClick={() =>
-                                            setActiveItem(drawer._id)
-                                        }
-                                    >
-                                        {activeItem === drawer._id && (
-                                            <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                        )}
-                                        {drawer.allPublic ? (
-                                            <ShareOutlinedIcon className="category-icon" />
-                                        ) : (
-                                            <InboxIcon className="category-icon" />
-                                        )}
-                                        <p>{drawer.name}</p>
-                                    </Link>
-                                </li>
-                            ))}
+                        {drawerList.length
+                            ? drawerList.map((drawer, index) => (
+                                  <li
+                                      key={index}
+                                      className={cx("category-item", {
+                                          active: activeItem === drawer._id,
+                                      })}
+                                  >
+                                      <Link
+                                          to={`/@${nickname}/${drawer.name}`}
+                                          className="item-inner"
+                                          onClick={() =>
+                                              setActiveItem(drawer._id)
+                                          }
+                                      >
+                                          {activeItem === drawer._id && (
+                                              <KeyboardArrowRightRoundedIcon className="active-icon" />
+                                          )}
+                                          {drawer.allPublic ? (
+                                              <ShareOutlinedIcon className="category-icon" />
+                                          ) : (
+                                              <InboxIcon className="category-icon" />
+                                          )}
+                                          <p>{drawer.name}</p>
+                                      </Link>
+                                  </li>
+                              ))
+                            : ""}
                         {/* <li
                             className={cx("category-item", {
                                 active: activeItem === "project_1",
