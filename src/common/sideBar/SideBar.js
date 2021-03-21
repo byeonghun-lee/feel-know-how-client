@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import cx from "classnames";
+import { useSelector } from "react-redux";
 
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import InboxIcon from "@material-ui/icons/Inbox";
@@ -16,14 +17,14 @@ import "./SideBar.scss";
 
 const SideBar = ({ isLogin }) => {
     const location = useLocation();
-    const [activeItem, setActiveItem] = useState();
-    const [nickName, setNickName] = useState("hun");
+    const [activeItem, setActiveItem] = useState(null);
+    const nickname = useSelector(({ auth }) => auth.info && auth.info.nickname);
+    const drawerList = useSelector(({ drawer }) => drawer.list);
 
     useEffect(() => {
-        if (location.pathname.indexOf("@") === 1) {
-            setActiveItem(location.pathname.split("/")[2]);
-        } else {
+        if (location.pathname.indexOf("@") !== 1) {
             setActiveItem(location.pathname);
+        } else {
         }
     }, [location]);
 
@@ -32,7 +33,7 @@ const SideBar = ({ isLogin }) => {
             {isLogin && (
                 <>
                     <div className="title-area">
-                        <h1>hun's drawer</h1>
+                        <h1>{nickname}'s drawer</h1>
                     </div>
                     <div className="main-box-area">
                         <Link to="/" className="move-to-main-btn">
@@ -44,13 +45,40 @@ const SideBar = ({ isLogin }) => {
                         {/* <UnfoldMoreRoundedIcon className="drop-down-btn" /> */}
                     </div>
                     <ul>
-                        <li
+                        {drawerList.length &&
+                            drawerList.map((drawer, index) => (
+                                <li
+                                    key={index}
+                                    className={cx("category-item", {
+                                        active: activeItem === drawer._id,
+                                    })}
+                                >
+                                    <Link
+                                        to={`/@${nickname}/${drawer.name}`}
+                                        className="item-inner"
+                                        onClick={() =>
+                                            setActiveItem(drawer._id)
+                                        }
+                                    >
+                                        {activeItem === drawer._id && (
+                                            <KeyboardArrowRightRoundedIcon className="active-icon" />
+                                        )}
+                                        {drawer.allPublic ? (
+                                            <ShareOutlinedIcon className="category-icon" />
+                                        ) : (
+                                            <InboxIcon className="category-icon" />
+                                        )}
+                                        <p>{drawer.name}</p>
+                                    </Link>
+                                </li>
+                            ))}
+                        {/* <li
                             className={cx("category-item", {
                                 active: activeItem === "project_1",
                             })}
                         >
                             <Link
-                                to={`/@${nickName}/project_1`}
+                                to={`/@${nickname}/project_1`}
                                 className="item-inner"
                             >
                                 {activeItem === "project_1" && (
@@ -66,7 +94,7 @@ const SideBar = ({ isLogin }) => {
                             })}
                         >
                             <Link
-                                to={`/@${nickName}/project_2`}
+                                to={`/@${nickname}/project_2`}
                                 className="item-inner"
                             >
                                 {activeItem === "project_2" && (
@@ -82,7 +110,7 @@ const SideBar = ({ isLogin }) => {
                             })}
                         >
                             <Link
-                                to={`/@${nickName}/project_3`}
+                                to={`/@${nickname}/project_3`}
                                 className="item-inner"
                             >
                                 {activeItem === "project_3" && (
@@ -98,7 +126,7 @@ const SideBar = ({ isLogin }) => {
                             })}
                         >
                             <Link
-                                to={`/@${nickName}/project_4`}
+                                to={`/@${nickname}/project_4`}
                                 className="item-inner"
                             >
                                 {activeItem === "project_4" && (
@@ -107,7 +135,7 @@ const SideBar = ({ isLogin }) => {
                                 <InboxIcon className="category-icon" />
                                 <p>Project_4</p>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                     <h2>Default</h2>
                     <ul>
@@ -151,10 +179,10 @@ const SideBar = ({ isLogin }) => {
                             </Link>
                         </li>
                     </ul>
-                    <button type="button" className="add-drawer-btn">
+                    <Link to="/new-drawer" className="move-to-new-drawer-page">
                         <AddTwoToneIcon className="add-drawer-icon" />
                         New Drawer
-                    </button>
+                    </Link>
                 </>
             )}
         </nav>
