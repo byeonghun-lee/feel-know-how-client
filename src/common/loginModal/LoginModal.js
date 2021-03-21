@@ -10,7 +10,7 @@ import "./LoginModal.scss";
 
 import purple_backgound from "assets/image/purple_background.jpg";
 
-const LoginModal = () => {
+const LoginModal = ({ isLogin }) => {
     const el = document.getElementById("modal-root");
     const dispatch = useDispatch();
     const { register, handleSubmit, setError, errors } = useForm();
@@ -38,6 +38,7 @@ const LoginModal = () => {
                 message: "아이디 혹은 비밀번호를 확인해주세요.",
             });
         }
+        // eslint-disable-next-line
     }, [loginError]);
 
     useEffect(() => {
@@ -45,6 +46,10 @@ const LoginModal = () => {
             handleLoading(false);
         }
     }, [needLogin]);
+
+    if (isLogin) {
+        return null;
+    }
 
     return createPortal(
         <>
@@ -111,8 +116,8 @@ const LoginModal = () => {
                                         {errors.loginError.message}
                                     </p>
                                 )}
-                                <Link to="/" className="move-to-sign-in-page">
-                                    Sign in
+                                <Link to="/" className="move-to-register-page">
+                                    Create New Account
                                 </Link>
                                 <button type="submit" className="login-btn">
                                     LOGIN

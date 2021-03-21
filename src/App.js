@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import cx from "classnames";
 
@@ -10,12 +11,12 @@ import Routes from "Routes";
 import "./Reset.scss";
 
 function App() {
-    const [isLogin, setLogin] = useState(false);
+    const isLogin = useSelector(({ auth }) => auth.info);
 
     return (
         <BrowserRouter>
             <div className="App">
-                <LoginModal isLogin={isLogin} setLogin={setLogin} />
+                <LoginModal isLogin={isLogin} />
                 <SideBar isLogin={isLogin} />
                 <div
                     className={cx("main-contents", {
