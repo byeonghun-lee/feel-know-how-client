@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import BestMain from "bestMain/BestMain";
 import Drawer from "drawer/Drawer";
 import NewCard from "newCard/NewCard";
+import NewDrawer from "newDrawer/NewDrawer";
 
 export default () => (
     <Switch>
@@ -16,8 +17,11 @@ export default () => (
                 </Route>
             </Switch>
         </Route>
-        <Route exact path={`/new-card`}>
+        <Route exact path="/new-card">
             <NewCard />
+        </Route>
+        <Route exact path="/new-drawer">
+            <NewDrawer />
         </Route>
         <Route path="/in-box">
             <Drawer />
