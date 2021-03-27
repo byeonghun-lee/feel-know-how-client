@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import cx from "classnames";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setStandardForNewCard } from "service/drawer/drawerSlice";
 
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import InboxIcon from "@material-ui/icons/Inbox";
@@ -17,16 +19,16 @@ import "./SideBar.scss";
 
 const SideBar = ({ isLogin }) => {
     const location = useLocation();
-    const [activeItem, setActiveItem] = useState(null);
+    const dispatch = useDispatch();
     const nickname = useSelector(({ auth }) => auth.info && auth.info.nickname);
     const drawerList = useSelector(({ drawer }) => drawer.list);
+    const standardForNewCard = useSelector(
+        ({ drawer }) => drawer.standardForNewCard
+    );
 
-    useEffect(() => {
-        if (location.pathname.indexOf("@") !== 1) {
-            setActiveItem(location.pathname);
-        } else {
-        }
-    }, [location]);
+    const setActiveItem = ({ name, drawerId }) => {
+        dispatch(setStandardForNewCard({ name, drawerId }));
+    };
 
     return (
         <nav className={cx("side-bar", { "is-logined": isLogin })}>
@@ -50,17 +52,23 @@ const SideBar = ({ isLogin }) => {
                                   <li
                                       key={index}
                                       className={cx("category-item", {
-                                          active: activeItem === drawer._id,
+                                          active:
+                                              standardForNewCard.drawerId ===
+                                              drawer._id,
                                       })}
                                   >
                                       <Link
                                           to={`/@${nickname}/${drawer.name}`}
                                           className="item-inner"
                                           onClick={() =>
-                                              setActiveItem(drawer._id)
+                                              setActiveItem({
+                                                  name: drawer.name,
+                                                  drawerId: drawer._id,
+                                              })
                                           }
                                       >
-                                          {activeItem === drawer._id && (
+                                          {standardForNewCard.drawerId ===
+                                              drawer._id && (
                                               <KeyboardArrowRightRoundedIcon className="active-icon" />
                                           )}
                                           {drawer.allPublic ? (
@@ -73,80 +81,20 @@ const SideBar = ({ isLogin }) => {
                                   </li>
                               ))
                             : ""}
-                        {/* <li
-                            className={cx("category-item", {
-                                active: activeItem === "project_1",
-                            })}
-                        >
-                            <Link
-                                to={`/@${nickname}/project_1`}
-                                className="item-inner"
-                            >
-                                {activeItem === "project_1" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
-                                <InboxIcon className="category-icon" />
-                                <p>Project_1</p>
-                            </Link>
-                        </li>
-                        <li
-                            className={cx("category-item", {
-                                active: activeItem === "project_2",
-                            })}
-                        >
-                            <Link
-                                to={`/@${nickname}/project_2`}
-                                className="item-inner"
-                            >
-                                {activeItem === "project_2" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
-                                <ShareOutlinedIcon className="category-icon" />
-                                <p>Project_2</p>
-                            </Link>
-                        </li>
-                        <li
-                            className={cx("category-item", {
-                                active: activeItem === "project_3",
-                            })}
-                        >
-                            <Link
-                                to={`/@${nickname}/project_3`}
-                                className="item-inner"
-                            >
-                                {activeItem === "project_3" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
-                                <InboxIcon className="category-icon" />
-                                <p>Project_3</p>
-                            </Link>
-                        </li>
-                        <li
-                            className={cx("category-item", {
-                                active: activeItem === "project_4",
-                            })}
-                        >
-                            <Link
-                                to={`/@${nickname}/project_4`}
-                                className="item-inner"
-                            >
-                                {activeItem === "project_4" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
-                                <InboxIcon className="category-icon" />
-                                <p>Project_4</p>
-                            </Link>
-                        </li> */}
                     </ul>
                     <h2>Default</h2>
                     <ul>
                         <li
                             className={cx("category-item", {
-                                active: activeItem === "/in-box",
+                                active: location.pathname === "/in-box",
                             })}
                         >
-                            <Link to="/in-box" className="item-inner">
-                                {activeItem === "/in-box" && (
+                            <Link
+                                to="/in-box"
+                                className="item-inner"
+                                onClick={() => setActiveItem({})}
+                            >
+                                {location.pathname === "/in-box" && (
                                     <KeyboardArrowRightRoundedIcon className="active-icon" />
                                 )}
                                 <AllInboxIcon className="category-icon" />
@@ -155,11 +103,15 @@ const SideBar = ({ isLogin }) => {
                         </li>
                         <li
                             className={cx("category-item", {
-                                active: activeItem === "/trash",
+                                active: location.pathname === "/trash",
                             })}
                         >
-                            <Link to="/trash" className="item-inner">
-                                {activeItem === "/trash" && (
+                            <Link
+                                to="/trash"
+                                className="item-inner"
+                                onClick={() => setActiveItem({})}
+                            >
+                                {location.pathname === "/trash" && (
                                     <KeyboardArrowRightRoundedIcon className="active-icon" />
                                 )}
                                 <DeleteForeverRoundedIcon className="category-icon" />
@@ -168,11 +120,15 @@ const SideBar = ({ isLogin }) => {
                         </li>
                         <li
                             className={cx("category-item", {
-                                active: activeItem === "/setting",
+                                active: location.pathname === "/setting",
                             })}
                         >
-                            <Link to="/setting" className="item-inner">
-                                {activeItem === "/setting" && (
+                            <Link
+                                to="/setting"
+                                className="item-inner"
+                                onClick={() => setActiveItem({})}
+                            >
+                                {location.pathname === "/setting" && (
                                     <KeyboardArrowRightRoundedIcon className="active-icon" />
                                 )}
                                 <SettingsRoundedIcon className="category-icon" />

@@ -8,6 +8,10 @@ const drawerObj = {
         desc: null,
         allPublic: false,
     },
+    standardForNewCard: {
+        name: null,
+        drawerId: null,
+    },
 };
 
 const drawerSlice = createSlice({
@@ -24,9 +28,18 @@ const drawerSlice = createSlice({
             const error = action.payload;
             state.listError = error;
         },
+        setStandardForNewCard(state, action) {
+            state.standardForNewCard.name = action.payload.name || null;
+            state.standardForNewCard.drawerId = action.payload.drawerId || null;
+        },
     },
 });
 
-export const { getList, getListSuccess, getListFail } = drawerSlice.actions;
+export const {
+    getList,
+    getListSuccess,
+    getListFail,
+    setStandardForNewCard,
+} = drawerSlice.actions;
 
 export const drawerReducer = drawerSlice.reducer;
