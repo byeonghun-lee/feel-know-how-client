@@ -8,7 +8,6 @@ import { setStandardForNewCard } from "service/drawer/drawerSlice";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
 import InboxIcon from "@material-ui/icons/Inbox";
 import AddTwoToneIcon from "@material-ui/icons/AddTwoTone";
-import KeyboardArrowRightRoundedIcon from "@material-ui/icons/KeyboardArrowRightRounded";
 import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
@@ -67,10 +66,6 @@ const SideBar = ({ isLogin }) => {
                                               })
                                           }
                                       >
-                                          {standardForNewCard.drawerId ===
-                                              drawer._id && (
-                                              <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                          )}
                                           {drawer.allPublic ? (
                                               <ShareOutlinedIcon className="category-icon" />
                                           ) : (
@@ -94,9 +89,6 @@ const SideBar = ({ isLogin }) => {
                                 className="item-inner"
                                 onClick={() => setActiveItem({})}
                             >
-                                {location.pathname === "/in-box" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
                                 <AllInboxIcon className="category-icon" />
                                 <p>InBox</p>
                             </Link>
@@ -111,9 +103,6 @@ const SideBar = ({ isLogin }) => {
                                 className="item-inner"
                                 onClick={() => setActiveItem({})}
                             >
-                                {location.pathname === "/trash" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
                                 <DeleteForeverRoundedIcon className="category-icon" />
                                 <p>Trash</p>
                             </Link>
@@ -128,9 +117,6 @@ const SideBar = ({ isLogin }) => {
                                 className="item-inner"
                                 onClick={() => setActiveItem({})}
                             >
-                                {location.pathname === "/setting" && (
-                                    <KeyboardArrowRightRoundedIcon className="active-icon" />
-                                )}
                                 <SettingsRoundedIcon className="category-icon" />
                                 <p>Setting</p>
                             </Link>

@@ -3,7 +3,7 @@
 .side-bar {
     $side-bar-right-padding: 2.5rem;
 
-    background-color: white;
+    background-color: $deep-purple-500;
     width: 20rem;
     height: 100%;
     transition-duration: 2s;
@@ -20,14 +20,14 @@
 
         h1 {
             font-size: 1.3rem;
-            color: $gray-900;
+            color: rgba($color: white, $alpha: 0.9);
             padding-left: $side-bar-right-padding;
         }
     }
 
     h2 {
         font-size: 0.9rem;
-        color: $gray-500;
+        color: $gray-200;
         font-weight: 700;
         padding: 0 $side-bar-right-padding;
     }
@@ -36,7 +36,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: $gray-100;
+        background-color: $gray-50;
         border-radius: 1rem;
         margin: 0 0.7rem;
         margin-bottom: 2rem;
@@ -49,7 +49,6 @@
 
         .best-list-icon {
             border-radius: 50%;
-            background-color: white;
             padding: 4px;
             color: $yellow-500;
             margin-right: 0.5rem;
@@ -68,18 +67,28 @@
 
     .category-item {
         margin: 5px 0.7rem;
-        color: $gray-500;
+        color: $gray-100;
         font-weight: 600;
         border-radius: 1.1rem;
         cursor: pointer;
 
+        .active-mark {
+            display: none;
+        }
+
         &:hover {
             background-color: $gray-100;
+            color: $deep-purple-800;
         }
 
         &.active {
-            color: $gray-700;
+            color: $deep-purple-800;
             font-weight: 700;
+            background-color: $gray-100;
+            position: relative;
+            margin-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
 
             .active-icon {
                 font-size: 1.5rem;
@@ -116,10 +125,11 @@
         font-size: 1rem;
         padding: 0.7rem 3rem;
         border: none;
-        border-radius: 1.2rem;
-        background-color: $deep-purple-400;
-        color: white;
+        border-radius: 1rem;
+        background-color: $deep-purple-300;
+        color: $gray-100;
         font-weight: 700;
+        white-space: nowrap;
         cursor: pointer;
 
         .add-drawer-icon {
