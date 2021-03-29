@@ -2,13 +2,13 @@
 
 .side-bar {
     $side-bar-right-padding: 2.5rem;
-
-    background-color: $deep-purple-500;
+    background-color: $deep-purple-900;
     width: 20rem;
     height: 100%;
     transition-duration: 2s;
     margin-left: -20rem;
     position: relative;
+    border-right: 2.5px solid rgba($color: $gray-100, $alpha: 0.1);
 
     &.is-logined {
         margin-left: 0;
@@ -36,11 +36,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: $gray-50;
-        border-radius: 1rem;
+        border-bottom: 1px solid $amber-700;
         margin: 0 0.7rem;
         margin-bottom: 2rem;
-        padding: 0.7rem;
+        padding: 0.3rem;
 
         .move-to-main-btn {
             display: flex;
@@ -57,7 +56,7 @@
         h3 {
             font-size: 0.9rem;
             font-weight: 500;
-            color: $gray-800;
+            color: $gray-100;
         }
 
         .drop-down-btn {
@@ -67,35 +66,39 @@
 
     .category-item {
         margin: 5px 0.7rem;
-        color: $gray-100;
+        color: rgba($color: $gray-200, $alpha: 0.5);
+        // color: $gray-200;
         font-weight: 600;
         border-radius: 1.1rem;
         cursor: pointer;
 
-        .active-mark {
-            display: none;
-        }
-
         &:hover {
-            background-color: $gray-100;
-            color: $deep-purple-800;
+            color: $gray-100;
         }
 
         &.active {
-            color: $deep-purple-800;
+            color: $gray-100;
             font-weight: 700;
-            background-color: $gray-100;
             position: relative;
-            margin-right: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -1rem;
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background-color: $amber-800;
+                border-radius: 50%;
+            }
 
             .active-icon {
                 font-size: 1.5rem;
             }
 
             .category-icon {
-                color: $deep-purple-500;
+                color: $amber-800;
             }
         }
 
@@ -124,10 +127,9 @@
         align-items: center;
         font-size: 1rem;
         padding: 0.7rem 3rem;
-        border: none;
+        border: 2px solid $amber-800;
         border-radius: 1rem;
-        background-color: $deep-purple-300;
-        color: $gray-100;
+        color: $amber-900;
         font-weight: 700;
         white-space: nowrap;
         cursor: pointer;
@@ -138,7 +140,8 @@
         }
 
         &:hover {
-            background-color: $deep-purple-500;
+            background-color: $amber-800;
+            color: $gray-50;
         }
     }
 }

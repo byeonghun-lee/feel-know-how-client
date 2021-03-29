@@ -10,10 +10,13 @@
         justify-content: center;
         align-items: center;
         margin-left: 0.5rem;
-        color: $gray-500;
+        color: $amber-400;
         width: 2rem;
         height: 2rem;
-        background-color: white;
         border-radius: 50%;
+
+        &:hover {
+            color: $amber-700;
+        }
     }
 }

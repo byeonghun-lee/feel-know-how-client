@@ -2,23 +2,22 @@
 
 .card-component {
     margin: 1rem;
-    background-color: white;
+    // background-color: $gray-300;
     display: inline-block;
     position: relative;
     width: 20rem;
-    height: 17rem;
+    height: 12rem;
+    border: 1px solid rgba($color: $gray-100, $alpha: 0.5);
     border-radius: 1rem;
     overflow: hidden;
 
-    .meta-img-area {
-        width: 100%;
-        height: 50%;
-        background-color: $gray-300;
-    }
-
     .text-contents {
         padding: 10px;
-        height: 50%;
+        background-color: white;
+        border-top-left-radius: 0.8rem;
+        border-top-right-radius: 0.8rem;
+        height: 100%;
+        margin-top: 2.5rem;
     }
 
     .card-component-title {
@@ -35,6 +34,7 @@
 
     .card-component-url {
         position: absolute;
+        z-index: 10;
         bottom: 10px;
         left: 10px;
         font-size: 0.7rem;

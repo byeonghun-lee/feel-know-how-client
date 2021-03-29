@@ -2,22 +2,15 @@
 
 .add-card-btn {
     position: fixed;
-    bottom: 2rem;
+    bottom: 3rem;
     right: 3rem;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    border: none;
-    background-color: $deep-purple-400;
-    color: white;
-}
-
-.add-card-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    width: 25rem;
-    height: 10rem;
+    border: 3px solid $amber-700;
+    background-color: transparent;
+    color: $amber-800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
