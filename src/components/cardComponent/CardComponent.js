@@ -12,7 +12,6 @@ const CardComponent = () => {
             <div className="corner-btn-area">
                 <MoreVertRoundedIcon className="corner-btn" />
             </div>
-            <div className="meta-img-area"></div>
             <div className="text-contents">
                 <h3 className="card-component-title">card</h3>
                 <p className="card-component-desc">

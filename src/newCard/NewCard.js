@@ -1,8 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import "./NewCard.scss";
 
 const NewCard = () => {
+    const drawerList = useSelector(({ drawer }) => drawer.list);
+    const standardForNewCard = useSelector(
+        ({ drawer }) => drawer.standardForNewCard
+    );
+
     return (
         <div className="new-card">
             <h2>New Card</h2>
@@ -16,10 +22,22 @@ const NewCard = () => {
             <div className="select-drawer">
                 <label htmlFor="drawer-name">Drawer name</label>
                 <select name="drawerName" id="drawer-name">
-                    <option value="project_1">project_1</option>
-                    <option value="project_2">project_2</option>
-                    <option value="project_3">project_3</option>
-                    <option value="project_4">project_4</option>
+                    {standardForNewCard.name ? (
+                        <option
+                            selected="selected"
+                            value={standardForNewCard.drawerId}
+                        >
+                            {standardForNewCard.name}
+                        </option>
+                    ) : (
+                        <option value={null}>drawer 선택(선택 사항)</option>
+                    )}
+                    {drawerList.length &&
+                        drawerList.map((drawer, index) => (
+                            <option key={index} value={drawer._id}>
+                                {drawer.name}
+                            </option>
+                        ))}
                 </select>
             </div>
             <div className="title-area">
