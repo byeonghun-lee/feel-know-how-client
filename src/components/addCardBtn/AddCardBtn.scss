@@ -13,4 +13,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+        color: white;
+        background-color: $amber-800;
+    }
 }
