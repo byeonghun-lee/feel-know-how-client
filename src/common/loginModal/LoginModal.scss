@@ -85,6 +85,10 @@
             &::placeholder {
                 color: rgba($color: white, $alpha: 0.7);
             }
+
+            &:focus {
+                border-color: $amber-800;
+            }
         }
     }
 

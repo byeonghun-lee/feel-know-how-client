@@ -1,9 +1,9 @@
 @import "styles";
 
 .best-card-component {
-    background-color: white;
+    background-color: rgba($color: $deep-purple-300, $alpha: 0.5);
     width: 20rem;
-    height: 12.4rem;
+    height: 10rem;
     border-radius: 10px;
     position: relative;
     padding: 0.7rem;
@@ -11,25 +11,22 @@
     display: flex;
     flex-direction: column;
 
-    .profile-thumbnail {
-        margin-top: 0.7rem;
-        width: 2rem;
-        height: 2rem;
-        background-color: $yellow-300;
-        border-radius: 50%;
+    &:hover {
+        background-color: $deep-purple-600;
     }
 
     .drawer-title {
-        margin-top: 1rem;
-        font-size: 1rem;
-        color: $gray-800;
-        font-weight: 700;
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        color: $gray-100;
+        font-weight: bold;
     }
 
     .drawer-desc {
-        margin-top: 0.3rem;
+        margin-top: 1.5rem;
         font-size: 0.8rem;
-        color: $gray-600;
+        color: rgba($color: $gray-200, $alpha: 0.8);
+        font-weight: 600;
     }
 
     .bottom-area {
@@ -45,17 +42,17 @@
 
         p {
             font-size: 0.7rem;
-            color: $gray-600;
+            color: $gray-50;
             font-weight: 600;
         }
 
         .star-icon {
-            color: $yellow-500;
+            color: $amber-400;
             margin-right: 5px;
         }
 
         .fork-icon {
-            color: $gray-600;
+            color: $gray-50;
             font-size: 1.3rem;
             margin-right: 5px;
         }

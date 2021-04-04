@@ -10,10 +10,10 @@ import "./BestCardComponent.scss";
 const BestCardComponent = () => (
     <div className="best-card-component">
         <div className="corner-btn-area">
-            <StarBorderRoundedIcon className="corner-btn" />
+            {/* <StarBorderRoundedIcon className="corner-btn" /> */}
             <MoreVertRoundedIcon className="corner-btn" />
         </div>
-        <div className="profile-thumbnail" />
+        {/* <div className="profile-thumbnail" /> */}
         <h3 className="drawer-title">개발자 취업 관련 링크</h3>
         <p className="drawer-desc">
             개발자 취업을 위해 분류한 목록입니다. 4개의 리스트로 분류 해놨고

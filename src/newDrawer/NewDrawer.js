@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { createDrawer as createDrawerAPI } from "api/drawer";
 import { getList } from "service/drawer/drawerSlice";
 
+import SubmitBtn from "components/SubmitBtn/SubmitBtn";
+
 import "./NewDrawer.scss";
 
 const NewDrawer = () => {
@@ -33,18 +35,20 @@ const NewDrawer = () => {
         <div className="new-drawer-page">
             <form onSubmit={handleSubmit(onSubmitDrawer)}>
                 <h2>New Drawer</h2>
-                <label htmlFor="drawer-name">
-                    <h3>Name:</h3>
+                <div>
+                    <label htmlFor="drawer-name">Name:</label>
                     <input
                         type="text"
                         id="drawer-name"
                         name="name"
                         ref={register({ required: true })}
                     />
-                </label>
-                {errors.name && <p className="err-msg">이름을 입력해주세요.</p>}
-                <label htmlFor="drawer-desc">
-                    <h3>Description:</h3>
+                    {errors.name && (
+                        <p className="err-msg">이름을 입력해주세요.</p>
+                    )}
+                </div>
+                <div>
+                    <label htmlFor="drawer-desc">Description:</label>
                     <textarea
                         name="desc"
                         id="drawer-desc"
@@ -54,18 +58,18 @@ const NewDrawer = () => {
                         drawer에 대한 설명을 적어주세요. 설명은 140자를 넘을 수
                         없습니다.
                     </p>
-                </label>
-                <label htmlFor="drawer-all-public">
-                    <h3>Public:</h3>
+                </div>
+                <div className="row-item">
+                    <label htmlFor="drawer-all-public">Public:</label>
                     <input
                         type="checkbox"
                         name="allPublic"
                         id="drawer-all-public"
                         ref={register}
                     />
-                </label>
-                <label htmlFor="drawer-tags">
-                    <h3>Tags:</h3>
+                </div>
+                <div>
+                    <label htmlFor="drawer-tags">Tags:</label>
                     <input
                         type="text"
                         id="drawer-tags"
@@ -81,13 +85,10 @@ const NewDrawer = () => {
                         <span>,</span>로 구분해주세요. tag 한개는 5글자가 넘을
                         수 없습니다.
                     </p>
-                </label>
-                {errors.tags && (
-                    <p className="err-msg">
-                        tag 한개당 글자수는 5글자 이하입니다.
-                    </p>
-                )}
-                <button type="submit">Create</button>
+                </div>
+                <div className="btn-area">
+                    <SubmitBtn />
+                </div>
             </form>
         </div>
     );

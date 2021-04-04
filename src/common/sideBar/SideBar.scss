@@ -35,39 +35,40 @@
     .main-box-area {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid $amber-700;
         margin: 0 0.7rem;
         margin-bottom: 2rem;
-        padding: 0.3rem;
 
         .move-to-main-btn {
             display: flex;
             align-items: center;
+            // justify-content: center;
+            padding: 0.7rem 2rem;
+            border: 2px solid $amber-700;
+            border-radius: 0.8rem;
+            width: 100%;
         }
 
         .best-list-icon {
-            border-radius: 50%;
-            padding: 4px;
-            color: $yellow-500;
+            color: $amber-400;
             margin-right: 0.5rem;
+            position: relative;
+            top: 1px;
         }
 
         h3 {
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: bold;
             color: $gray-100;
         }
 
-        .drop-down-btn {
-            color: $gray-600;
-        }
+        // .drop-down-btn {
+        //     color: $gray-600;
+        // }
     }
 
     .category-item {
         margin: 5px 0.7rem;
         color: rgba($color: $gray-200, $alpha: 0.5);
-        // color: $gray-200;
         font-weight: 600;
         border-radius: 1.1rem;
         cursor: pointer;

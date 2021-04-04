@@ -9,7 +9,7 @@ const Drawer = () => {
     const { drawerName } = useParams();
 
     return (
-        <>
+        <div className="drawer-page">
             <h2>{drawerName}</h2>
             <CardComponent />
             <CardComponent />
@@ -19,7 +19,7 @@ const Drawer = () => {
             <CardComponent />
             <CardComponent />
             <AddCardBtn />
-        </>
+        </div>
     );
 };
 

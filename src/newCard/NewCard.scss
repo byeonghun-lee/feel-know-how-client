@@ -3,6 +3,8 @@
 .new-card {
     display: flex;
     flex-direction: column;
+    width: 40%;
+    min-width: 34rem;
 
     h2 {
         margin-bottom: 1rem;
@@ -37,12 +39,13 @@
     }
 
     input,
-    textarea {
+    textarea,
+    .drawer-list {
         border: 2px solid rgba($color: $gray-100, $alpha: 0.5);
         border-radius: 0.3rem;
         color: $gray-50;
         background-color: transparent;
-        width: 34rem;
+        // width: 100%;
         font-size: 1.1rem;
         padding: 7px;
 
@@ -53,10 +56,22 @@
 
     input {
         height: 2.5rem;
+        width: 100%;
     }
 
     textarea {
         height: 5rem;
         font-size: 1.3rem;
+        width: 100%;
+    }
+
+    .drawer-list {
+        width: 50%;
+    }
+
+    .btn-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
 }

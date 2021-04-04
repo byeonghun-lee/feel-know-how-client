@@ -1,0 +1,78 @@
+@import "styles";
+
+.new-drawer-page {
+    background-color: white;
+    width: 40%;
+    min-width: 34rem;
+    border-radius: 1rem;
+    padding: 2rem 2rem 3rem;
+
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $gray-800;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+        color: $gray-700;
+        font-weight: bold;
+    }
+
+    form {
+        > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        > div + div {
+            margin-top: 1rem;
+        }
+    }
+
+    input[type="text"],
+    textarea {
+        width: 70%;
+        border: 2px solid $gray-300;
+        border-radius: 0.3rem;
+        color: $gray-800;
+        font-size: 1.1rem;
+        padding: 7px;
+
+        &:focus {
+            border-color: $amber-800;
+        }
+    }
+
+    textarea {
+        height: 5rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+        color: $gray-500;
+        font-weight: bold;
+        margin-top: 5px;
+
+        &.err-msg {
+            color: $red-500;
+        }
+    }
+
+    .row-item {
+        flex-direction: row;
+        align-items: center;
+
+        label {
+            margin-bottom: 0;
+            margin-right: 1rem;
+        }
+    }
+    .btn-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

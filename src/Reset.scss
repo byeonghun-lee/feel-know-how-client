@@ -73,14 +73,14 @@ textarea {
     position: absolute;
     top: 0.7rem;
     right: 0.7rem;
-    color: $gray-400;
+    color: $amber-400;
 
     .corner-btn {
-        border-radius: 5px;
+        border-radius: 40%;
 
         &:hover {
-            background-color: $gray-200;
-            color: $gray-700;
+            background-color: $amber-700;
+            color: $gray-50;
         }
     }
 

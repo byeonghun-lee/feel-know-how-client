@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import SubmitBtn from "components/SubmitBtn/SubmitBtn";
+
 import "./NewCard.scss";
 
 const NewCard = () => {
@@ -21,7 +23,11 @@ const NewCard = () => {
             </p>
             <div className="select-drawer">
                 <label htmlFor="drawer-name">Drawer name</label>
-                <select name="drawerName" id="drawer-name">
+                <select
+                    name="drawerName"
+                    id="drawer-name"
+                    className="drawer-list"
+                >
                     {standardForNewCard.name ? (
                         <option
                             selected="selected"
@@ -53,7 +59,7 @@ const NewCard = () => {
                 <textarea id="card-description" />
             </div>
             <div className="btn-area">
-                <button type="button">save</button>
+                <SubmitBtn />
             </div>
         </div>
     );
