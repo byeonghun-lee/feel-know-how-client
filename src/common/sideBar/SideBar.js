@@ -12,6 +12,8 @@ import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 // import UnfoldMoreRoundedIcon from "@material-ui/icons/UnfoldMoreRounded";
 
 import "./SideBar.scss";
@@ -30,21 +32,21 @@ const SideBar = ({ isLogin }) => {
     };
 
     return (
-        <nav className={cx("side-bar", { "is-logined": isLogin })}>
-            {isLogin && (
+        <nav className="side-bar">
+            <div className="title-area">
+                {isLogin ? <h1>{nickname}'s drawer</h1> : <h1>oh My Drawer</h1>}
+            </div>
+            <div className="main-box-area">
+                <Link to="/" className="move-to-main-btn">
+                    <div className="best-list-icon">
+                        <StarRoundedIcon />
+                    </div>
+                    <h3>Best Drawer</h3>
+                </Link>
+                {/* <UnfoldMoreRoundedIcon className="drop-down-btn" /> */}
+            </div>
+            {isLogin ? (
                 <>
-                    <div className="title-area">
-                        <h1>{nickname}'s drawer</h1>
-                    </div>
-                    <div className="main-box-area">
-                        <Link to="/" className="move-to-main-btn">
-                            <div className="best-list-icon">
-                                <StarRoundedIcon />
-                            </div>
-                            <h3>Best Drawer</h3>
-                        </Link>
-                        {/* <UnfoldMoreRoundedIcon className="drop-down-btn" /> */}
-                    </div>
                     <ul>
                         {drawerList.length
                             ? drawerList.map((drawer, index) => (
@@ -126,6 +128,31 @@ const SideBar = ({ isLogin }) => {
                         <AddTwoToneIcon className="add-drawer-icon" />
                         New Drawer
                     </Link>
+                </>
+            ) : (
+                <>
+                    <ul className="non-login">
+                        <li
+                            className={cx("category-item", {
+                                active: location.pathname === "/login",
+                            })}
+                        >
+                            <Link to="/login" className="item-inner">
+                                <AccountBoxIcon className="category-icon" />
+                                <p>Login</p>
+                            </Link>
+                        </li>
+                        <li
+                            className={cx("category-item", {
+                                active: location.pathname === "/signup",
+                            })}
+                        >
+                            <Link to="/signup" className="item-inner">
+                                <PersonAddIcon className="category-icon" />
+                                <p>New accounts</p>
+                            </Link>
+                        </li>
+                    </ul>
                 </>
             )}
         </nav>

@@ -5,14 +5,8 @@
     background-color: $deep-purple-900;
     width: 20rem;
     height: 100%;
-    transition-duration: 2s;
-    margin-left: -20rem;
     position: relative;
     border-right: 2.5px solid rgba($color: $gray-100, $alpha: 0.1);
-
-    &.is-logined {
-        margin-left: 0;
-    }
 
     .title-area {
         margin-top: 3rem;
@@ -41,7 +35,6 @@
         .move-to-main-btn {
             display: flex;
             align-items: center;
-            // justify-content: center;
             padding: 0.7rem 2rem;
             border: 2px solid $amber-700;
             border-radius: 0.8rem;
@@ -144,5 +137,9 @@
             background-color: $amber-800;
             color: $gray-50;
         }
+    }
+
+    .non-login {
+        margin-top: 5rem;
     }
 }
