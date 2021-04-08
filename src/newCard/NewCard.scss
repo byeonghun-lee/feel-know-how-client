@@ -23,7 +23,8 @@
         margin-top: 0.2rem;
     }
 
-    > div {
+    > div,
+    form > div {
         margin-top: 1.5rem;
         display: inline-block;
         display: flex;
