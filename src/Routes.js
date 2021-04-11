@@ -4,11 +4,16 @@ import BestMain from "bestMain/BestMain";
 import Drawer from "drawer/Drawer";
 import NewCard from "newCard/NewCard";
 import NewDrawer from "newDrawer/NewDrawer";
+import Login from "login/Login";
+import SignUp from "signUp/SignUp";
 
 export default () => (
     <Switch>
         <Route exact path="/">
             <BestMain />
+        </Route>
+        <Route exact path="/login">
+            <Login />
         </Route>
         <Route path="/@:nickName">
             <Switch>
@@ -28,5 +33,8 @@ export default () => (
         </Route>
         <Route path="/trash" />
         <Route path="/setting" />
+        <Route path="/sign-up">
+            <SignUp />
+        </Route>
     </Switch>
 );

@@ -1,0 +1,79 @@
+@import "styles";
+
+.sign-up-page {
+    h1 {
+        font-size: 2rem;
+        color: $gray-50;
+        margin-bottom: 1rem;
+    }
+
+    form {
+        > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        > div + div {
+            margin-top: 1rem;
+        }
+
+        label {
+            color: $gray-100;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input:not([type="checkbox"]) {
+            @include border-input;
+            width: 30rem;
+        }
+
+        input + input {
+            margin-top: 10px;
+        }
+    }
+
+    .desc {
+        color: $amber-600;
+        font-weight: bold;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+
+    .email-input-area {
+        display: flex;
+        align-items: center;
+    }
+
+    .show-pwd-area {
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+
+        label {
+            margin-bottom: 0;
+            margin-left: 10px;
+        }
+    }
+
+    .verify-btn {
+        margin-left: 10px;
+        height: 39px;
+        border: 3px solid $amber-800;
+        background-color: transparent;
+        color: $gray-50;
+        border-radius: 4px;
+        font-weight: bold;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+
+        &:hover {
+            background-color: $amber-800;
+        }
+    }
+
+    .sign-up-btn-area {
+        margin-top: 20px;
+    }
+}

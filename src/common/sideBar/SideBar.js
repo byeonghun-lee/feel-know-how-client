@@ -144,10 +144,10 @@ const SideBar = ({ isLogin }) => {
                         </li>
                         <li
                             className={cx("category-item", {
-                                active: location.pathname === "/signup",
+                                active: location.pathname === "/sign-up",
                             })}
                         >
-                            <Link to="/signup" className="item-inner">
+                            <Link to="/sign-up" className="item-inner">
                                 <PersonAddIcon className="category-icon" />
                                 <p>New accounts</p>
                             </Link>
