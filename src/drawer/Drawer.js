@@ -16,6 +16,7 @@ const Drawer = () => {
 
     useEffect(() => {
         dispatch(getList({ nickName, drawerName }));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, drawerName]);
 
     if (!cardListPage.drawerName) return null;

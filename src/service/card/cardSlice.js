@@ -4,6 +4,7 @@ const cardObj = {
     list: {
         drawerName: null,
         drawerDesc: null,
+        tagList: [],
         cardList: [],
     },
     listError: null,

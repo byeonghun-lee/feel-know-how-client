@@ -5,10 +5,13 @@ import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import "./CardComponent.scss";
 
 const CardComponent = ({ cardInfo }) => {
-    const test = "";
-
     return (
-        <div className="card-component">
+        <a
+            className="card-component"
+            href={cardInfo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <div className="corner-btn-area">
                 <MoreVertRoundedIcon className="corner-btn" />
             </div>
@@ -17,7 +20,7 @@ const CardComponent = ({ cardInfo }) => {
                 <p className="card-component-desc">{cardInfo.desc}</p>
                 <p className="card-component-url">{cardInfo.url}</p>
             </div>
-        </div>
+        </a>
     );
 };
 
