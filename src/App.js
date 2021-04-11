@@ -16,7 +16,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <LoginModal isLogin={isLogin} />
+                {/* <LoginModal isLogin={isLogin} /> */}
                 <SideBar isLogin={isLogin} />
                 <div
                     className={cx("main-contents", {
