@@ -6,7 +6,16 @@
     font-size: 1.1rem;
     padding: 7px;
 
+    &::placeholder {
+        color: rgba($color: $gray-50, $alpha: 0.7);
+        font-size: 0.9rem;
+    }
+
     &:focus {
         border-color: $amber-800;
+    }
+
+    &.error {
+        border-color: $red-500;
     }
 }

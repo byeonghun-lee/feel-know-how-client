@@ -1,0 +1,60 @@
+@import "styles";
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+
+    h1 {
+        font-size: 2rem;
+        color: $gray-50;
+        margin-bottom: 1rem;
+    }
+
+    .id-field,
+    .pwd-field {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: $gray-100;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            @include border-input;
+        }
+    }
+
+    .pwd-field {
+        margin-top: 1rem;
+    }
+
+    .error-text {
+        font-size: 0.9rem;
+        color: $red-500;
+        margin-top: 5px;
+    }
+
+    .move-to-register-page {
+        display: block;
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: $gray-50;
+        text-align: center;
+
+        &:hover {
+            color: $amber-800;
+        }
+    }
+
+    .login-btn-area {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+}

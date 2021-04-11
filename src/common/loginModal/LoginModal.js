@@ -8,7 +8,7 @@ import { login } from "service/auth/authSlice";
 
 import "./LoginModal.scss";
 
-import purple_backgound from "assets/image/purple_background.jpg";
+// import purple_backgound from "assets/image/purple_background.jpg";
 
 const LoginModal = ({ isLogin }) => {
     const el = document.getElementById("modal-root");
@@ -61,7 +61,7 @@ const LoginModal = ({ isLogin }) => {
                         "is-logined": loginLoading,
                     })}
                 >
-                    <div
+                    {/* <div
                         className="title-area"
                         style={{ backgroundImage: `url(${purple_backgound})` }}
                     >
@@ -70,7 +70,7 @@ const LoginModal = ({ isLogin }) => {
                         ) : (
                             <h1>Oh My Drawer</h1>
                         )}
-                    </div>
+                    </div> */}
                     {!loginLoading && (
                         <>
                             <form
