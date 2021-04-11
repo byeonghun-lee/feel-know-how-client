@@ -42,17 +42,7 @@
     input,
     textarea,
     .drawer-list {
-        border: 2px solid rgba($color: $gray-100, $alpha: 0.5);
-        border-radius: 0.3rem;
-        color: $gray-50;
-        background-color: transparent;
-        // width: 100%;
-        font-size: 1.1rem;
-        padding: 7px;
-
-        &:focus {
-            border-color: $amber-800;
-        }
+        @include border-input;
     }
 
     input {
