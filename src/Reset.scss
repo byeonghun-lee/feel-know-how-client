@@ -68,6 +68,12 @@ textarea {
     }
 }
 
+.err-msg {
+    color: $red-500;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
 .corner-btn-area {
     position: absolute;
     top: 0.7rem;

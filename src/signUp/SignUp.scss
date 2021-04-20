@@ -44,6 +44,23 @@
     .email-input-area {
         display: flex;
         align-items: center;
+        width: 30rem;
+
+        input:not([type="checkbox"]) {
+            width: 24rem;
+        }
+
+        .email-input {
+            &:read-only {
+                // background-color: $gray-500;
+            }
+        }
+    }
+
+    .verification-code-area {
+        p {
+            margin-top: 5px;
+        }
     }
 
     .show-pwd-area {
@@ -70,6 +87,11 @@
 
         &:hover {
             background-color: $amber-800;
+        }
+
+        &:disabled {
+            background-color: $gray-500;
+            border-color: $gray-500;
         }
     }
 
