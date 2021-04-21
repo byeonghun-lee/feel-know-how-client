@@ -9,3 +9,6 @@ export const verifyEmail = (email) =>
     client.post("/auth/verify-email", { email });
 export const checkVerificationCode = ({ email, code }) =>
     client.post("/auth/verification-code", { email, code });
+
+export const checkNickname = (nickname) =>
+    client.get(`/auth/nickname?value=${nickname}`);

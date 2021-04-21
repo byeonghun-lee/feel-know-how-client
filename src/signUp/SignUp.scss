@@ -49,12 +49,6 @@
         input:not([type="checkbox"]) {
             width: 24rem;
         }
-
-        .email-input {
-            &:read-only {
-                // background-color: $gray-500;
-            }
-        }
     }
 
     .verification-code-area {
