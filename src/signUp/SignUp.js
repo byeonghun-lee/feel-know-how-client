@@ -1,17 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 import {
     verifyEmail as verifyEmailAPI,
     checkVerificationCode as checkVerificationCodeAPI,
     checkNickname as checkNicknameAPI,
+    signUp as signUpAPI,
 } from "api/auth";
 
 import "./SignUp.scss";
 
 const SignUp = () => {
     const emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    const { register, errors, trigger, reset, watch, getValues } = useForm();
+    const {
+        register,
+        errors,
+        trigger,
+        reset,
+        watch,
+        getValues,
+        handleSubmit,
+    } = useForm();
     const [pwdType, setPwdType] = useState("password");
     const [verifiyBtnStatus, setVerifyBtnStatus] = useState(false);
 
@@ -85,13 +94,23 @@ const SignUp = () => {
         }
     };
 
-    const onSignUp = async () => {};
-    console.log(errors.nickname);
+    const onSignUp = async (data) => {
+        delete data.passwordConfirm;
+
+        try {
+            const res = await signUpAPI(data);
+            if (res.data === "ok") {
+                reset();
+            }
+        } catch (error) {
+            console.log("signUpError", error);
+        }
+    };
 
     return (
         <div className="sign-up-page">
             <h1>Create New Accounts</h1>
-            <form>
+            <form onSubmit={handleSubmit(onSignUp)}>
                 <div>
                     <label htmlFor="">Email</label>
                     <div className="email-input-area">
