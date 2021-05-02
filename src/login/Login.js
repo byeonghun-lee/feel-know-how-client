@@ -22,7 +22,7 @@ const Login = () => {
     const needLogin = useSelector(({ auth }) => auth.needLogin);
 
     const onLogin = (data) => {
-        dispatch(login({ id: data.id, password: data.password }));
+        dispatch(login({ email: data.email, password: data.password }));
     };
 
     useEffect(() => {
@@ -42,7 +42,7 @@ const Login = () => {
     useEffect(() => {
         if (loginError) {
             setError("loginError", {
-                message: "아이디 혹은 비밀번호를 확인해주세요.",
+                message: "Please check your e-mail or password.",
             });
         }
         // eslint-disable-next-line
@@ -62,7 +62,7 @@ const Login = () => {
                     <label htmlFor="user-id">ID</label>
                     <input
                         type="text"
-                        name="id"
+                        name="email"
                         id="user-id"
                         ref={register({
                             required: true,
@@ -71,8 +71,8 @@ const Login = () => {
                         placeholder="Email"
                     />
                 </div>
-                {errors.id && (
-                    <p className="error-text">이메일을 입력해주세요.</p>
+                {errors.email && (
+                    <p className="error-text">Please enter your e-mail.</p>
                 )}
                 <div className="pwd-field">
                     <label htmlFor="user-pwd">Password</label>
@@ -88,7 +88,7 @@ const Login = () => {
                     />
                 </div>
                 {errors.password && (
-                    <p className="error-text">비밀번호를 입력해주세요.</p>
+                    <p className="error-text">Please enter your password.</p>
                 )}
                 {errors.loginError && (
                     <p className="error-text">{errors.loginError.message}</p>
