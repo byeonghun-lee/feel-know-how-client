@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const drawerObj = {
     list: [],
     listError: null,
-    drawerDetail: {
-        name: null,
-        desc: null,
-        allPublic: false,
-    },
+    // drawerDetail: {
+    //     name: null,
+    //     desc: null,
+    //     allPublic: false,
+    // },
     standardForNewCard: {
         name: null,
         drawerId: null,
