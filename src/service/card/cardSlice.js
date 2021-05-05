@@ -23,9 +23,17 @@ const cardSlice = createSlice({
             const error = action.payload;
             state.listError = error;
         },
+        resetList(state) {
+            state.list = { ...cardObj.list };
+        },
     },
 });
 
-export const { getList, getListSuccess, getListFail } = cardSlice.actions;
+export const {
+    getList,
+    getListSuccess,
+    getListFail,
+    resetList,
+} = cardSlice.actions;
 
 export const cardReducer = cardSlice.reducer;

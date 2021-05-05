@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import AddCardBtn from "components/addCardBtn/AddCardBtn";
 import CardComponent from "components/cardComponent/CardComponent";
 
-import { getList } from "service/card/cardSlice";
+import { getList, resetList } from "service/card/cardSlice";
 
 import "./Drawer.scss";
 
@@ -16,6 +16,7 @@ const Drawer = () => {
 
     useEffect(() => {
         dispatch(getList({ nickName, drawerName }));
+        return () => dispatch(resetList());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch, drawerName]);
 
