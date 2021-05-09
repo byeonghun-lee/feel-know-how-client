@@ -4,8 +4,8 @@
     margin: 1rem;
     display: inline-block;
     position: relative;
-    width: 20rem;
-    height: 12rem;
+    width: 25rem;
+    height: 10rem;
     border: 2px solid rgba($color: $gray-100, $alpha: 0.5);
     border-radius: 1rem;
     overflow: hidden;
@@ -17,24 +17,21 @@
     }
 
     .text-contents {
-        padding: 10px;
-        background-color: white;
-        border-top-left-radius: 0.8rem;
-        border-top-right-radius: 0.8rem;
+        padding: 12px 15px;
+        background-color: transparent;
         height: 100%;
-        margin-top: 2.5rem;
     }
 
     .card-component-title {
-        margin-bottom: 3px;
+        margin-bottom: 7px;
         font-weight: 500;
         font-size: 1.2rem;
-        color: $gray-900;
+        color: $amber-800;
     }
 
     .card-component-desc {
         font-size: 0.9rem;
-        color: $gray-700;
+        color: $gray-50;
     }
 
     .card-component-url {
