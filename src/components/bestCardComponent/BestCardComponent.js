@@ -13,6 +13,7 @@ const BestCardComponent = ({ drawer }) => (
             <MoreVertRoundedIcon className="corner-btn" />
         </div>
         <h3 className="drawer-title">{drawer.name}</h3>
+        <p className="drawer-user-nickname">@{drawer.userNickname}</p>
         <p className="drawer-desc">{drawer.desc}</p>
         <div className="bottom-area">
             <div className="star-area">

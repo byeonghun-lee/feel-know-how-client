@@ -17,15 +17,23 @@
 
     .drawer-title {
         margin-top: 0.3rem;
-        font-size: 0.9rem;
-        color: $gray-100;
+        font-size: 1rem;
+        color: $gray-50;
+        font-weight: bolder;
+    }
+
+    .drawer-user-nickname {
+        margin-top: 0.3rem;
+        font-size: 0.7rem;
+        color: $amber-500;
+        // color: rgba($color: $gray-100, $alpha: 0.8);
         font-weight: bold;
     }
 
     .drawer-desc {
-        margin-top: 1.5rem;
+        margin-top: 0.7rem;
         font-size: 0.8rem;
-        color: rgba($color: $gray-200, $alpha: 0.8);
+        color: $gray-100;
         font-weight: 600;
     }
 
