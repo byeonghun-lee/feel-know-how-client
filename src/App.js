@@ -5,7 +5,7 @@ import cx from "classnames";
 
 import SideBar from "common/sideBar/SideBar";
 import Header from "common/header/Header";
-import LoginModal from "common/loginModal/LoginModal";
+// import LoginModal from "common/loginModal/LoginModal";
 import Routes from "Routes";
 
 import "./Reset.scss";
