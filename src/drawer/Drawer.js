@@ -34,7 +34,7 @@ const Drawer = () => {
             {cardListPage.cardList.map((cardInfo, index) => (
                 <CardComponent key={index} cardInfo={cardInfo} />
             ))}
-            <AddCardBtn />
+            {cardListPage.isOwner && <AddCardBtn />}
         </div>
     );
 };
