@@ -6,6 +6,7 @@ import NewCard from "newCard/NewCard";
 import NewDrawer from "newDrawer/NewDrawer";
 import Login from "login/Login";
 import SignUp from "signUp/SignUp";
+import PrivateRoute from "components/PrivateRoute/PrivateRoute";
 
 export default () => (
     <Switch>
@@ -22,17 +23,17 @@ export default () => (
                 </Route>
             </Switch>
         </Route>
-        <Route exact path="/new-card">
+        <PrivateRoute exact path="/new-card">
             <NewCard />
-        </Route>
-        <Route exact path="/new-drawer">
+        </PrivateRoute>
+        <PrivateRoute exact path="/new-drawer">
             <NewDrawer />
-        </Route>
-        <Route path="/in-box">
+        </PrivateRoute>
+        <PrivateRoute path="/in-box">
             <Drawer />
-        </Route>
-        <Route path="/trash" />
-        <Route path="/setting" />
+        </PrivateRoute>
+        <PrivateRoute path="/trash" />
+        <PrivateRoute path="/setting" />
         <Route path="/sign-up">
             <SignUp />
         </Route>
