@@ -8,6 +8,37 @@
     position: relative;
     border-right: 2.5px solid rgba($color: $gray-100, $alpha: 0.1);
 
+    @include mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 100;
+        transition: transform 1s;
+
+        &.show-mobile-side-menu {
+            transform: translateX(0);
+        }
+    }
+
+    .mobile-side-menu-btn {
+        display: none;
+        position: absolute;
+        top: 0.5rem;
+        right: 0;
+        transform: translateX(130%);
+        border: none;
+        // background-color: transparent;
+        // color: $amber-700;
+        background-color: $amber-700;
+        color: white;
+        border-radius: 0.3rem;
+
+        @include mobile {
+            display: inline-block;
+        }
+    }
+
     .title-area {
         margin-top: 3rem;
         margin-bottom: 3rem;

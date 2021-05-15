@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import cx from "classnames";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,13 +14,18 @@ import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
-// import UnfoldMoreRoundedIcon from "@material-ui/icons/UnfoldMoreRounded";
+import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 
 import "./SideBar.scss";
 
 const SideBar = ({ isLogin }) => {
     const location = useLocation();
     const dispatch = useDispatch();
+    const [sideMenuStatusInMobile, handleSideMenuStatusInMobile] = useState(
+        false
+    );
+
     const nickname = useSelector(({ auth }) => auth.info && auth.info.nickname);
     const drawerList = useSelector(({ drawer }) => drawer.list);
     const standardForNewCard = useSelector(
@@ -32,7 +37,23 @@ const SideBar = ({ isLogin }) => {
     };
 
     return (
-        <nav className="side-bar">
+        <nav
+            className={cx("side-bar", {
+                "show-mobile-side-menu": sideMenuStatusInMobile,
+            })}
+        >
+            <button
+                className="mobile-side-menu-btn"
+                onClick={() =>
+                    handleSideMenuStatusInMobile(!sideMenuStatusInMobile)
+                }
+            >
+                {sideMenuStatusInMobile ? (
+                    <CloseRoundedIcon style={{ fontSize: 30 }} />
+                ) : (
+                    <MenuRoundedIcon style={{ fontSize: 30 }} />
+                )}
+            </button>
             <div className="title-area">
                 {isLogin ? <h1>{nickname}'s drawer</h1> : <h1>oh My Drawer</h1>}
             </div>
@@ -43,7 +64,6 @@ const SideBar = ({ isLogin }) => {
                     </div>
                     <h3>Best Drawer</h3>
                 </Link>
-                {/* <UnfoldMoreRoundedIcon className="drop-down-btn" /> */}
             </div>
             {isLogin ? (
                 <>
