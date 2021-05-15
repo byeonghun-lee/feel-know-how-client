@@ -19,3 +19,9 @@
         border-color: $red-500;
     }
 }
+
+@mixin mobile {
+    @media screen and (max-width: #{$breakpoint-mobile}) {
+        @content;
+    }
+}
