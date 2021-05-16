@@ -17,6 +17,8 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 
+import SideBarLink from "components/sideBarLink/SideBarLink";
+
 import "./SideBar.scss";
 
 const SideBar = ({ isLogin }) => {
@@ -58,12 +60,16 @@ const SideBar = ({ isLogin }) => {
                 {isLogin ? <h1>{nickname}'s drawer</h1> : <h1>oh My Drawer</h1>}
             </div>
             <div className="main-box-area">
-                <Link to="/" className="move-to-main-btn">
+                <SideBarLink
+                    to="/"
+                    className="move-to-main-btn"
+                    handleSideMenuStatusInMobile={handleSideMenuStatusInMobile}
+                >
                     <div className="best-list-icon">
                         <StarRoundedIcon />
                     </div>
                     <h3>Best Drawer</h3>
-                </Link>
+                </SideBarLink>
             </div>
             {isLogin ? (
                 <>
@@ -77,15 +83,18 @@ const SideBar = ({ isLogin }) => {
                                               standardForNewCard.drawerId ===
                                               drawer._id,
                                       })}
+                                      onClick={() =>
+                                          setActiveItem({
+                                              name: drawer.name,
+                                              drawerId: drawer._id,
+                                          })
+                                      }
                                   >
-                                      <Link
+                                      <SideBarLink
                                           to={`/@${nickname}/${drawer.name}`}
                                           className="item-inner"
-                                          onClick={() =>
-                                              setActiveItem({
-                                                  name: drawer.name,
-                                                  drawerId: drawer._id,
-                                              })
+                                          handleSideMenuStatusInMobile={
+                                              handleSideMenuStatusInMobile
                                           }
                                       >
                                           {drawer.allPublic ? (
@@ -94,7 +103,7 @@ const SideBar = ({ isLogin }) => {
                                               <InboxIcon className="category-icon" />
                                           )}
                                           <p>{drawer.name}</p>
-                                      </Link>
+                                      </SideBarLink>
                                   </li>
                               ))
                             : ""}
@@ -105,49 +114,64 @@ const SideBar = ({ isLogin }) => {
                             className={cx("category-item", {
                                 active: location.pathname === "/in-box",
                             })}
+                            onClick={() => setActiveItem({})}
                         >
-                            <Link
+                            <SideBarLink
                                 to="/in-box"
                                 className="item-inner"
-                                onClick={() => setActiveItem({})}
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
                             >
                                 <AllInboxIcon className="category-icon" />
                                 <p>InBox</p>
-                            </Link>
+                            </SideBarLink>
                         </li>
                         <li
                             className={cx("category-item", {
                                 active: location.pathname === "/trash",
                             })}
+                            onClick={() => setActiveItem({})}
                         >
-                            <Link
+                            <SideBarLink
                                 to="/trash"
                                 className="item-inner"
-                                onClick={() => setActiveItem({})}
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
                             >
                                 <DeleteForeverRoundedIcon className="category-icon" />
                                 <p>Trash</p>
-                            </Link>
+                            </SideBarLink>
                         </li>
                         <li
                             className={cx("category-item", {
                                 active: location.pathname === "/setting",
                             })}
+                            onClick={() => setActiveItem({})}
                         >
-                            <Link
+                            <SideBarLink
                                 to="/setting"
                                 className="item-inner"
-                                onClick={() => setActiveItem({})}
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
                             >
                                 <SettingsRoundedIcon className="category-icon" />
                                 <p>Setting</p>
-                            </Link>
+                            </SideBarLink>
                         </li>
                     </ul>
-                    <Link to="/new-drawer" className="move-to-new-drawer-page">
+                    <SideBarLink
+                        to="/new-drawer"
+                        className="move-to-new-drawer-page"
+                        handleSideMenuStatusInMobile={
+                            handleSideMenuStatusInMobile
+                        }
+                    >
                         <AddTwoToneIcon className="add-drawer-icon" />
                         New Drawer
-                    </Link>
+                    </SideBarLink>
                 </>
             ) : (
                 <>
@@ -157,20 +181,32 @@ const SideBar = ({ isLogin }) => {
                                 active: location.pathname === "/login",
                             })}
                         >
-                            <Link to="/login" className="item-inner">
+                            <SideBarLink
+                                to="/login"
+                                className="item-inner"
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
+                            >
                                 <AccountBoxIcon className="category-icon" />
                                 <p>Login</p>
-                            </Link>
+                            </SideBarLink>
                         </li>
                         <li
                             className={cx("category-item", {
                                 active: location.pathname === "/sign-up",
                             })}
                         >
-                            <Link to="/sign-up" className="item-inner">
+                            <SideBarLink
+                                to="/sign-up"
+                                className="item-inner"
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
+                            >
                                 <PersonAddIcon className="category-icon" />
                                 <p>New accounts</p>
-                            </Link>
+                            </SideBarLink>
                         </li>
                     </ul>
                 </>
