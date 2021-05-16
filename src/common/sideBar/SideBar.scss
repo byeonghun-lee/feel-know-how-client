@@ -27,12 +27,10 @@
         top: 0.5rem;
         right: 0;
         transform: translateX(130%);
-        border: none;
-        // background-color: transparent;
-        // color: $amber-700;
-        background-color: $amber-700;
-        color: white;
-        border-radius: 0.3rem;
+        border: 3px solid $amber-700;
+        background-color: transparent;
+        color: $amber-700;
+        border-radius: 0.7rem;
 
         @include mobile {
             display: inline-block;
