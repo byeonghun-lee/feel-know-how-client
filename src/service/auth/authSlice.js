@@ -25,6 +25,9 @@ const authSlice = createSlice({
         checkLoginFail(state, action) {
             state.needLogin = true;
         },
+        logout(state) {
+            state.info = null;
+        },
     },
 });
 
@@ -35,6 +38,7 @@ export const {
     setTempUser,
     checkLogin,
     checkLoginFail,
+    logout,
 } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

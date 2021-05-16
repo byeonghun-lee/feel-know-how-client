@@ -5,6 +5,8 @@ export const signUp = (signUpData) => client.post("/auth/register", signUpData);
 export const login = ({ email, password }) =>
     client.post("/auth/login", { email, password });
 
+export const logout = () => client.post("/auth/logout");
+
 export const checkLogin = () => client.get("/auth/check");
 
 export const verifyEmail = (email) =>

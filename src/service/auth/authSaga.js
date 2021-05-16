@@ -6,6 +6,7 @@ import {
     loginFail,
     checkLogin,
     checkLoginFail,
+    logout,
 } from "service/auth/authSlice";
 import { getList } from "service/drawer/drawerSlice";
 
@@ -30,7 +31,17 @@ function* checkLoginSaga(action) {
     }
 }
 
+function* logoutSaga() {
+    try {
+        yield call(AuthAPI.logout);
+        localStorage.removeItem("user");
+    } catch (error) {
+        console.log("Logout error:", error.message);
+    }
+}
+
 export function* authSaga() {
     yield takeLatest(login, loginSaga);
     yield takeLatest(checkLogin, checkLoginSaga);
+    yield takeLatest(logout, logoutSaga);
 }
