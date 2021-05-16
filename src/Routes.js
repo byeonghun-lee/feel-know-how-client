@@ -1,12 +1,15 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+
+import PrivateRoute from "components/PrivateRoute/PrivateRoute";
+
 import BestMain from "bestMain/BestMain";
 import Drawer from "drawer/Drawer";
 import NewCard from "newCard/NewCard";
 import NewDrawer from "newDrawer/NewDrawer";
 import Login from "login/Login";
 import SignUp from "signUp/SignUp";
-import PrivateRoute from "components/PrivateRoute/PrivateRoute";
+import SettingPage from "settingPage/SettingPage";
 
 export default () => (
     <Switch>
@@ -33,7 +36,9 @@ export default () => (
             <Drawer />
         </PrivateRoute>
         <PrivateRoute path="/trash" />
-        <PrivateRoute path="/setting" />
+        <PrivateRoute path="/setting">
+            <SettingPage />
+        </PrivateRoute>
         <Route path="/sign-up">
             <SignUp />
         </Route>
