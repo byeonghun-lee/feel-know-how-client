@@ -4,6 +4,10 @@
     h2 {
         font-size: 1.1rem;
         color: $gray-50;
+
+        @include mobile {
+            font-size: 0.9rem;
+        }
     }
 
     .desc {
@@ -11,6 +15,10 @@
         font-size: 1rem;
         font-weight: bold;
         color: rgba($color: $gray-50, $alpha: 0.7);
+
+        @include mobile {
+            font-size: 0.8rem;
+        }
     }
 
     .tag-list {
@@ -24,6 +32,10 @@
             padding: 2px 8px;
             border-radius: 4px;
             font-weight: 500;
+
+            @include mobile {
+                font-size: 0.7rem;
+            }
         }
 
         li + li {

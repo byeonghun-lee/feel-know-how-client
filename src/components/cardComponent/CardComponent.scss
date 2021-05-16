@@ -11,13 +11,18 @@
     overflow: hidden;
     cursor: pointer;
 
+    @include mobile {
+        width: 90%;
+        height: 7rem;
+    }
+
     &:hover {
         border-color: $amber-800;
         border-width: 2px;
     }
 
     .text-contents {
-        padding: 12px 15px;
+        padding: 0.7rem 0.9rem;
         background-color: transparent;
         height: 100%;
     }
@@ -27,11 +32,19 @@
         font-weight: 500;
         font-size: 1.2rem;
         color: $amber-800;
+
+        @include mobile {
+            font-size: 0.9rem;
+        }
     }
 
     .card-component-desc {
         font-size: 0.9rem;
         color: $gray-50;
+
+        @include mobile {
+            font-size: 0.7rem;
+        }
     }
 
     .card-component-url {
@@ -41,5 +54,9 @@
         left: 10px;
         font-size: 0.7rem;
         color: $gray-400;
+
+        @include mobile {
+            font-size: 0.5rem;
+        }
     }
 }
