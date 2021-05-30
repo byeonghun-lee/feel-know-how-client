@@ -8,11 +8,18 @@
     height: 3rem;
     border-radius: 50%;
     border: 3px solid $amber-700;
-    background-color: transparent;
+    background-color: rgba($color: $deep-purple-900, $alpha: 0.7);
+
     color: $amber-800;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include mobile {
+        right: 1rem;
+        width: 2.8rem;
+        height: 2.8rem;
+    }
 
     &:hover {
         color: white;

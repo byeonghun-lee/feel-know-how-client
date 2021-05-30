@@ -1,14 +1,24 @@
 @import "styles";
 
 .sign-up-page {
+    width: 30rem;
+
+    @include mobile {
+        width: 100%;
+    }
+
     h1 {
         font-size: 2rem;
         color: $gray-50;
         margin-bottom: 1rem;
+
+        @include mobile {
+            margin-bottom: 1.2rem;
+        }
     }
 
     form {
-        > div {
+        > div:not(.sign-up-btn-area) {
             display: flex;
             flex-direction: column;
         }
@@ -22,11 +32,19 @@
             font-size: 0.8rem;
             font-weight: 700;
             margin-bottom: 10px;
+
+            @include mobile {
+                font-size: 1rem;
+            }
         }
 
         input:not([type="checkbox"]) {
             @include border-input;
             width: 30rem;
+
+            @include mobile {
+                width: 100%;
+            }
         }
 
         input + input {
@@ -45,6 +63,10 @@
         display: flex;
         align-items: center;
         width: 30rem;
+
+        @include mobile {
+            width: 100%;
+        }
 
         input:not([type="checkbox"]) {
             width: 24rem;
@@ -91,5 +113,7 @@
 
     .sign-up-btn-area {
         margin-top: 20px;
+        display: flex;
+        justify-content: center;
     }
 }

@@ -1,17 +1,27 @@
 @import "styles";
 
 .new-drawer-page {
-    background-color: white;
-    width: 40%;
-    min-width: 34rem;
-    border-radius: 1rem;
-    padding: 2rem 2rem 3rem;
+    form {
+        background-color: white;
+        width: 50%;
+        min-width: 34rem;
+        border-radius: 1rem;
+        padding: 2rem 2rem 3rem;
 
-    h2 {
+        @include mobile {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: $gray-50;
         margin-bottom: 1rem;
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: $gray-800;
+
+        @include mobile {
+            margin-bottom: 1rem;
+        }
     }
 
     label {
@@ -19,6 +29,10 @@
         font-size: 0.8rem;
         color: $gray-700;
         font-weight: bold;
+
+        @include mobile {
+            font-size: 1rem;
+        }
     }
 
     form {
@@ -34,7 +48,7 @@
 
     input[type="text"],
     textarea {
-        width: 70%;
+        width: 90%;
         border: 2px solid $gray-300;
         border-radius: 0.3rem;
         color: $gray-800;
@@ -44,6 +58,15 @@
         &:focus {
             border-color: $amber-800;
         }
+
+        &::placeholder {
+            color: $gray-400;
+            font-size: 1rem;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
     }
 
     textarea {
@@ -51,14 +74,21 @@
     }
 
     p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         color: $gray-500;
         font-weight: bold;
-        margin-top: 5px;
+        line-height: 1.5;
 
-        &.err-msg {
-            color: $red-500;
+        @include mobile {
+            font-size: 0.7rem;
+            margin-top: 0;
+            line-height: 1.5;
         }
+    }
+
+    .desc-length {
+        margin-left: 5px;
+        font-size: 0.7rem;
     }
 
     .row-item {
@@ -73,6 +103,6 @@
     .btn-area {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: center;
     }
 }

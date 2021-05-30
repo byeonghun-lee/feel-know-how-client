@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { createCard as createCardAPI } from "api/card";
@@ -8,7 +8,9 @@ import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 import "./NewCard.scss";
 
 const NewCard = () => {
-    const { register, handleSubmit, errors, reset } = useForm();
+    const { register, handleSubmit, errors, reset, trigger } = useForm();
+    const [descLength, setDescLength] = useState(0);
+
     const drawerList = useSelector(({ drawer }) => drawer.list);
     const standardForNewCard = useSelector(
         ({ drawer }) => drawer.standardForNewCard
@@ -29,14 +31,13 @@ const NewCard = () => {
 
     return (
         <div className="new-card">
-            <h2>New Card</h2>
-            <p className="page-desc">
-                저장할 URL을 입력해주세요. 저장된 URL의 상태를 읽음으로 바꾸지
-                않으면 90일 후 Trash로 이동됩니다.
-            </p>
-            <p className="page-desc">
-                이 옵션은 Setting에서 변경하실 수 있습니다.
-            </p>
+            <h1>New Card</h1>
+            <p className="page-desc">Please enter the URL to save.</p>
+            {/* <p className="page-desc">
+                If you don't change the status of the saved URL to read, it will
+                go to Trash after 90 days.
+            </p> */}
+            {/* <p className="page-desc">This option can be changed in Setting.</p> */}
             <form className="form-area" onSubmit={handleSubmit(onSubmitCard)}>
                 <div className="select-drawer">
                     <label htmlFor="drawer-name">Drawer name</label>
@@ -54,7 +55,7 @@ const NewCard = () => {
                                 {standardForNewCard.name}
                             </option>
                         ) : (
-                            <option value={null}>drawer 선택(선택 사항)</option>
+                            <option value={null}>select drawer(options)</option>
                         )}
                         {drawerList.length &&
                             drawerList.map((drawer, index) => (
@@ -70,6 +71,7 @@ const NewCard = () => {
                         type="text"
                         name="title"
                         id="card-title"
+                        placeholder="Card title"
                         ref={register}
                     />
                 </div>
@@ -84,13 +86,21 @@ const NewCard = () => {
                 </div>
                 <div className="desc-area">
                     <label htmlFor="card-description">
-                        Description<span>0/140</span>
+                        Description<span>{descLength}/140</span>
                     </label>
                     <textarea
                         id="card-description"
+                        placeholder="Description of this card"
                         name="desc"
-                        ref={register}
+                        ref={register({ maxLength: 140 })}
+                        onBlur={() => trigger("desc")}
+                        onChange={(e) => setDescLength(e.target.value.length)}
                     />
+                    {errors.desc && (
+                        <p className="err-msg">
+                            Please write within 140 characters.
+                        </p>
+                    )}
                 </div>
                 <div className="btn-area">
                     <SubmitBtn />

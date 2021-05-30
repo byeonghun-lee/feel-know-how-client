@@ -65,8 +65,8 @@ const SideBar = ({ isLogin }) => {
                     className="move-to-main-btn"
                     handleSideMenuStatusInMobile={handleSideMenuStatusInMobile}
                 >
-                    <div className="best-list-icon">
-                        <StarRoundedIcon />
+                    <div className="best-list-icon-wrapper">
+                        <StarRoundedIcon className="best-list-icon" />
                     </div>
                     <h3>Best Drawer</h3>
                 </SideBarLink>

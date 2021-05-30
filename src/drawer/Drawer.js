@@ -24,13 +24,15 @@ const Drawer = () => {
 
     return (
         <div className="drawer-page">
-            <h2>{cardListPage.drawerName}</h2>
-            <p className="desc">{cardListPage.drawerDesc}</p>
-            <ul className="tag-list">
-                {cardListPage.tagList.map((tag, tagIndex) => (
-                    <li key={tagIndex}>{tag}</li>
-                ))}
-            </ul>
+            <div className="title-area">
+                <h2>{cardListPage.drawerName}</h2>
+                <p className="desc">{cardListPage.drawerDesc}</p>
+                <ul className="tag-list">
+                    {cardListPage.tagList.map((tag, tagIndex) => (
+                        <li key={tagIndex}>{tag}</li>
+                    ))}
+                </ul>
+            </div>
             {cardListPage.cardList.map((cardInfo, index) => (
                 <CardComponent key={index} cardInfo={cardInfo} />
             ))}

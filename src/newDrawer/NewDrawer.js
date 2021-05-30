@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { createDrawer as createDrawerAPI } from "api/drawer";
@@ -10,11 +10,12 @@ import "./NewDrawer.scss";
 
 const NewDrawer = () => {
     const dispatch = useDispatch();
-    const { register, handleSubmit, errors, reset } = useForm({
+    const { register, handleSubmit, errors, reset, trigger } = useForm({
         defaultValues: {
             allPublic: false,
         },
     });
+    const [descLength, setDescLength] = useState(0);
 
     const onSubmitDrawer = async (values) => {
         if (values.tags) {
@@ -33,10 +34,10 @@ const NewDrawer = () => {
 
     return (
         <div className="new-drawer-page">
+            <h1>New Drawer</h1>
             <form onSubmit={handleSubmit(onSubmitDrawer)}>
-                <h2>New Drawer</h2>
                 <div>
-                    <label htmlFor="drawer-name">Name:</label>
+                    <label htmlFor="drawer-name">Name</label>
                     <input
                         type="text"
                         id="drawer-name"
@@ -44,20 +45,29 @@ const NewDrawer = () => {
                         ref={register({ required: true })}
                     />
                     {errors.name && (
-                        <p className="err-msg">이름을 입력해주세요.</p>
+                        <p className="err-msg">
+                            Please enter the drawer's name.
+                        </p>
                     )}
                 </div>
                 <div>
-                    <label htmlFor="drawer-desc">Description:</label>
+                    <label htmlFor="drawer-desc">
+                        Description
+                        <span className="desc-length">{descLength}/140</span>
+                    </label>
                     <textarea
                         name="desc"
                         id="drawer-desc"
+                        placeholder="Please write a description for the drawer."
                         ref={register({ maxLength: 140 })}
+                        onChange={(e) => setDescLength(e.target.value.length)}
+                        onBlur={() => trigger("desc")}
                     />
-                    <p>
-                        drawer에 대한 설명을 적어주세요. 설명은 140자를 넘을 수
-                        없습니다.
-                    </p>
+                    {errors.desc && (
+                        <p className="err-msg">
+                            The description cannot exceed 140 characters.
+                        </p>
+                    )}
                 </div>
                 <div className="row-item">
                     <label htmlFor="drawer-all-public">Public:</label>
@@ -74,17 +84,18 @@ const NewDrawer = () => {
                         type="text"
                         id="drawer-tags"
                         name="tags"
+                        placeholder="dev, career, web"
                         ref={register({
                             validate: (value) =>
                                 value
                                     .split(",")
-                                    .some((item) => item.length < 5),
+                                    .some((item) => item.length < 6),
                         })}
                     />
                     <p>
-                        <span>,</span>로 구분해주세요. tag 한개는 5글자가 넘을
-                        수 없습니다.
+                        Please separate with a <span>,(comma)</span>.
                     </p>
+                    <p>The tag cannot overed 5 characters.</p>
                 </div>
                 <div className="btn-area">
                     <SubmitBtn />

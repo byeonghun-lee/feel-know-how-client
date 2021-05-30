@@ -72,7 +72,7 @@ const Login = () => {
                     />
                 </div>
                 {errors.email && (
-                    <p className="error-text">Please enter your e-mail.</p>
+                    <p className="err-msg">Please enter your e-mail.</p>
                 )}
                 <div className="pwd-field">
                     <label htmlFor="user-pwd">Password</label>
@@ -88,17 +88,17 @@ const Login = () => {
                     />
                 </div>
                 {errors.password && (
-                    <p className="error-text">Please enter your password.</p>
+                    <p className="err-msg">Please enter your password.</p>
                 )}
                 {errors.loginError && (
-                    <p className="error-text">{errors.loginError.message}</p>
+                    <p className="err-msg">{errors.loginError.message}</p>
                 )}
-                <Link to="/sign-up" className="move-to-register-page">
-                    Create New Account
-                </Link>
                 <div className="login-btn-area">
                     <SubmitBtn text="LOGIN" />
                 </div>
+                <Link to="/sign-up" className="move-to-register-page">
+                    Create New Account
+                </Link>
             </form>
         </div>
     );
