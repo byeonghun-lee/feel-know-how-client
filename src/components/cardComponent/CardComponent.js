@@ -1,6 +1,7 @@
 import React from "react";
 
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
+import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
 
 import "./CardComponent.scss";
 
@@ -16,7 +17,10 @@ const CardComponent = ({ cardInfo }) => {
                 <MoreVertRoundedIcon className="corner-btn" />
             </div>
             <div className="text-contents">
-                <h3 className="card-component-title">{cardInfo.title}</h3>
+                <div className="title-area">
+                    <LinkRoundedIcon className="link-icon" />
+                    <h3 className="card-component-title">{cardInfo.title}</h3>
+                </div>
                 <p className="card-component-desc">{cardInfo.desc}</p>
                 <p className="card-component-url">{cardInfo.url}</p>
             </div>

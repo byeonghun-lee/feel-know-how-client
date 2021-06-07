@@ -28,11 +28,21 @@
         height: 100%;
     }
 
-    .card-component-title {
-        margin-bottom: 7px;
-        font-weight: 500;
-        font-size: 1.2rem;
+    .title-area {
+        display: flex;
+        align-items: center;
         color: $amber-800;
+        margin-bottom: 7px;
+
+        .link-icon {
+            font-size: 1.2rem;
+        }
+    }
+
+    .card-component-title {
+        margin-left: 5px;
+        font-weight: 500;
+        font-size: 1.1rem;
 
         @include mobile {
             font-size: 1.1rem;
