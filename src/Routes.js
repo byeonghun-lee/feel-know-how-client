@@ -10,6 +10,7 @@ import NewDrawer from "newDrawer/NewDrawer";
 import Login from "login/Login";
 import SignUp from "signUp/SignUp";
 import SettingPage from "settingPage/SettingPage";
+import Search from "search/Search";
 
 export default () => (
     <Switch>
@@ -39,6 +40,9 @@ export default () => (
         <PrivateRoute path="/setting">
             <SettingPage />
         </PrivateRoute>
+        <Route path="/search">
+            <Search />
+        </Route>
         <Route path="/sign-up">
             <SignUp />
         </Route>

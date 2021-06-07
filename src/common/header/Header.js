@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
 import PermIdentityRoundedIcon from "@material-ui/icons/PermIdentityRounded";
@@ -12,7 +13,9 @@ const Header = () => {
     return (
         <header className="main-header">
             <div className="header-icon">
-                <SearchRoundedIcon />
+                <Link to="/search">
+                    <SearchRoundedIcon />
+                </Link>
             </div>
             {user && (
                 <>

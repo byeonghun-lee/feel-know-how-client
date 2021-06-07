@@ -1,0 +1,41 @@
+@import "styles";
+
+.search-page {
+    padding-top: 3rem;
+
+    @include mobile {
+        padding-top: 0;
+    }
+
+    .search-input-area {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3rem;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        input {
+            width: 30rem;
+            @include border-input;
+
+            @include mobile {
+                width: 100%;
+            }
+        }
+
+        button {
+            margin-left: 10px;
+            @include border-btn;
+        }
+    }
+
+    .searched-list-area {
+        h2 {
+            color: $gray-300;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+    }
+}
