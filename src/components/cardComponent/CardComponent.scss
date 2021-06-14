@@ -13,7 +13,7 @@
 
     @include mobile {
         width: 100%;
-        height: 7rem;
+        height: 9rem;
         margin: 0.3rem 0;
     }
 
@@ -37,6 +37,10 @@
         .link-icon {
             font-size: 1.2rem;
         }
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     .card-component-title {
@@ -58,16 +62,56 @@
         }
     }
 
-    .card-component-url {
-        position: absolute;
-        z-index: 10;
-        bottom: 10px;
-        left: 10px;
-        font-size: 0.7rem;
-        color: $gray-400;
+    .status-list {
+        margin-top: 1rem;
 
-        @include mobile {
-            font-size: 0.5rem;
+        li {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+
+            h4 {
+                color: $gray-200;
+                font-weight: 500;
+                font-size: 0.9rem;
+                margin-right: 0.5rem;
+            }
+
+            [class*="-tag"] {
+                color: $gray-800;
+                border-radius: 5px;
+                padding: 1px 3px;
+                font-weight: 700;
+            }
+
+            .site-url-tag {
+                background-color: $amber-800;
+                margin-right: 5px;
+            }
+
+            .link-tag {
+                background-color: $deep-purple-300;
+                display: flex;
+                align-items: center;
+
+                .launch-icon {
+                    font-size: medium;
+                    margin-right: 3px;
+                }
+            }
         }
     }
+
+    // .card-component-url {
+    //     position: absolute;
+    //     z-index: 10;
+    //     bottom: 10px;
+    //     left: 10px;
+    //     font-size: 0.7rem;
+    //     color: $gray-400;
+
+    //     @include mobile {
+    //         font-size: 0.5rem;
+    //     }
+    // }
 }
