@@ -1,7 +1,7 @@
 @import "styles";
 
 .best-card-component {
-    background-color: rgba($color: $deep-purple-700, $alpha: 0.7);
+    background-color: rgba($color: $gray-800, $alpha: 0.7);
     width: 20rem;
     height: 10rem;
     border-radius: 10px;
@@ -17,7 +17,7 @@
     }
 
     &:hover {
-        background-color: $deep-purple-600;
+        background-color: $gray-800;
     }
 
     .drawer-title {
