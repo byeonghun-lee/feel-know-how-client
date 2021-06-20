@@ -1,6 +1,13 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import * as cardAPI from "api/card";
-import { getList, getListSuccess, getListFail } from "service/card/cardSlice";
+import {
+    getList,
+    getListSuccess,
+    getListFail,
+    updateCardReadStatus,
+    updateCardReadStatusSuccess,
+    updateCardReadStatusFail,
+} from "service/card/cardSlice";
 
 export function* getCardSaga(action) {
     try {
@@ -11,6 +18,16 @@ export function* getCardSaga(action) {
     }
 }
 
+export function* updateCardReadStatusSaga(action) {
+    try {
+        const result = yield call(cardAPI.updateCardReadStatus, action.payload);
+        yield put(updateCardReadStatusSuccess(result.data));
+    } catch (error) {
+        yield put(updateCardReadStatusFail(error.message));
+    }
+}
+
 export function* cardSaga() {
     yield takeLatest(getList, getCardSaga);
+    yield takeLatest(updateCardReadStatus, updateCardReadStatusSaga);
 }

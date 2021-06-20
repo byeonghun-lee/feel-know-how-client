@@ -10,19 +10,19 @@ import "./CardComponent.scss";
 
 const PurpleSwitch = withStyles({
     switchBase: {
-        color: "#bdbdbd",
+        color: "#e0e0e0",
         "&$checked": {
-            color: "#512da8",
+            color: "#9575cd",
         },
         "&$checked + $track": {
-            backgroundColor: "#512da8",
+            backgroundColor: "#9575cd",
         },
     },
     checked: {},
     track: {},
 })(Switch);
 
-const CardComponent = ({ cardInfo }) => {
+const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
     const siteNameUrl = cardInfo.url.replace("https://", "").split("/")[0];
 
     return (
@@ -61,7 +61,10 @@ const CardComponent = ({ cardInfo }) => {
                     </li>
                     <li>
                         <h4>Read Status</h4>
-                        <PurpleSwitch />
+                        <PurpleSwitch
+                            checked={cardInfo.isRead}
+                            onChange={() => onToggleReadStatus(cardInfo._id)}
+                        />
                     </li>
                 </ul>
                 {/* <p className="card-component-url">{cardInfo.url}</p> */}

@@ -26,6 +26,20 @@ const cardSlice = createSlice({
         resetList(state) {
             state.list = { ...cardObj.list };
         },
+        updateCardReadStatus(state) {},
+        updateCardReadStatusSuccess(state, action) {
+            state.list.cardList = state.list.cardList.map((item) => {
+                if (item._id === action.payload._id) {
+                    item.isRead = action.payload.isRead;
+                }
+                return item;
+            });
+            state.listError = null;
+        },
+        updateCardReadStatusFail(state, action) {
+            const error = action.payload;
+            state.listError = error;
+        },
     },
 });
 
@@ -34,6 +48,9 @@ export const {
     getListSuccess,
     getListFail,
     resetList,
+    updateCardReadStatus,
+    updateCardReadStatusSuccess,
+    updateCardReadStatusFail,
 } = cardSlice.actions;
 
 export const cardReducer = cardSlice.reducer;

@@ -1,2 +1,2 @@
 export { cardReducer } from "./cardSlice";
-// export { cardSaga } from "./cardSaga";
+export { cardSaga } from "./cardSaga";

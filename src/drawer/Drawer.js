@@ -5,7 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import AddCardBtn from "components/addCardBtn/AddCardBtn";
 import CardComponent from "components/cardComponent/CardComponent";
 
-import { getList, resetList } from "service/card/cardSlice";
+import {
+    getList,
+    resetList,
+    updateCardReadStatus,
+} from "service/card/cardSlice";
 
 import "./Drawer.scss";
 
@@ -13,6 +17,10 @@ const Drawer = () => {
     const { drawerName, nickName } = useParams();
     const dispatch = useDispatch();
     const cardListPage = useSelector(({ card }) => card.list);
+
+    const onToggleReadStatus = (cardId) => {
+        dispatch(updateCardReadStatus(cardId));
+    };
 
     useEffect(() => {
         dispatch(getList({ nickName, drawerName }));
@@ -34,7 +42,11 @@ const Drawer = () => {
                 </ul>
             </div>
             {cardListPage.cardList.map((cardInfo, index) => (
-                <CardComponent key={index} cardInfo={cardInfo} />
+                <CardComponent
+                    key={index}
+                    cardInfo={cardInfo}
+                    onToggleReadStatus={onToggleReadStatus}
+                />
             ))}
             {cardListPage.isOwner && <AddCardBtn />}
         </div>
