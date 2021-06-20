@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import cx from "classnames";
 import { useSelector, useDispatch } from "react-redux";
@@ -24,9 +24,8 @@ import "./SideBar.scss";
 const SideBar = ({ isLogin }) => {
     const location = useLocation();
     const dispatch = useDispatch();
-    const [sideMenuStatusInMobile, handleSideMenuStatusInMobile] = useState(
-        false
-    );
+    const [sideMenuStatusInMobile, handleSideMenuStatusInMobile] =
+        useState(false);
 
     const nickname = useSelector(({ auth }) => auth.info && auth.info.nickname);
     const drawerList = useSelector(({ drawer }) => drawer.list);
@@ -35,8 +34,18 @@ const SideBar = ({ isLogin }) => {
     );
 
     const setActiveItem = ({ name, drawerId }) => {
+        sessionStorage.setItem("drawer", JSON.stringify({ name, drawerId }));
         dispatch(setStandardForNewCard({ name, drawerId }));
     };
+
+    useEffect(() => {
+        const savedDrawerInStorage = JSON.parse(
+            sessionStorage.getItem("drawer")
+        );
+        if (savedDrawerInStorage.drawerId) {
+            dispatch(setStandardForNewCard(savedDrawerInStorage));
+        }
+    }, [dispatch]);
 
     return (
         <nav
