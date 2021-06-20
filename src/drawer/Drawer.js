@@ -19,6 +19,7 @@ const Drawer = () => {
     const cardListPage = useSelector(({ card }) => card.list);
 
     const onToggleReadStatus = (cardId) => {
+        if (!cardListPage.isOwner) return;
         dispatch(updateCardReadStatus(cardId));
     };
 
