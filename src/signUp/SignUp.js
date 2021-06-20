@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 import {
     verifyEmail as verifyEmailAPI,
@@ -11,16 +12,11 @@ import {
 import "./SignUp.scss";
 
 const SignUp = () => {
-    const emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    const {
-        register,
-        errors,
-        trigger,
-        reset,
-        watch,
-        getValues,
-        handleSubmit,
-    } = useForm();
+    const history = useHistory();
+    const emailRegExp =
+        /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    const { register, errors, trigger, reset, watch, getValues, handleSubmit } =
+        useForm();
     const [pwdType, setPwdType] = useState("password");
     const [verifiyBtnStatus, setVerifyBtnStatus] = useState(false);
 
@@ -99,8 +95,9 @@ const SignUp = () => {
 
         try {
             const res = await signUpAPI(data);
-            if (res.data === "ok") {
+            if (res.status === 200 && res.data.nickname) {
                 reset();
+                history.push("/login");
             }
         } catch (error) {
             console.log("signUpError", error);
