@@ -22,6 +22,7 @@ const NewCard = () => {
         }
         try {
             await createCardAPI(values);
+            setDescLength(0);
             reset();
         } catch (error) {
             console.log("Error in card created.");
