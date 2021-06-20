@@ -42,7 +42,7 @@ const SideBar = ({ isLogin }) => {
         const savedDrawerInStorage = JSON.parse(
             sessionStorage.getItem("drawer")
         );
-        if (savedDrawerInStorage.drawerId) {
+        if (savedDrawerInStorage && savedDrawerInStorage.drawerId) {
             dispatch(setStandardForNewCard(savedDrawerInStorage));
         }
     }, [dispatch]);
