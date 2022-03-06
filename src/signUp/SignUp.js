@@ -106,10 +106,10 @@ const SignUp = () => {
 
     return (
         <div className="sign-up-page">
-            <h1>Create New Accounts</h1>
+            <h1>회원가입</h1>
             <form onSubmit={handleSubmit(onSignUp)}>
                 <div>
-                    <label htmlFor="">Email</label>
+                    <label htmlFor="">이메일</label>
                     <div className="email-input-area">
                         <input
                             className="email-input"
@@ -128,23 +128,21 @@ const SignUp = () => {
                             disabled={verifiyBtnStatus}
                             onClick={onVerifyEmail}
                         >
-                            Verify
+                            인증하기
                         </button>
                     </div>
                     {verifiyBtnStatus && (
                         <p className="desc">
-                            An email has been sent with a verification code.
-                            Please check.
+                            이메일로 인증코드를 보냈습니다. 이메일을
+                            확인해주세요.
                         </p>
                     )}
                     {errors.email && (
-                        <p className="err-msg">Please write in email format.</p>
+                        <p className="err-msg">이메일 형식을 확인해주세요.</p>
                     )}
                 </div>
                 <div className="verification-code-area">
-                    <label htmlFor="verificationCode">
-                        Authentication code
-                    </label>
+                    <label htmlFor="verificationCode">인증 코드</label>
                     <input
                         type="text"
                         ref={register({
@@ -160,15 +158,15 @@ const SignUp = () => {
                     {!verifiedEmailStatus.status &&
                         verifiedEmailStatus.errMsg && (
                             <p className="err-msg">
-                                Wrong authentication code. Please check again.
+                                인증번호가 맞지 않습니다. 다시 확인해 주세요.
                             </p>
                         )}
                     {verifiedEmailStatus.status && (
-                        <p className="desc">Email has been verified!</p>
+                        <p className="desc">이메일 인증이 완료되었습니다!</p>
                     )}
                 </div>
                 <div className="password-area">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">비밀번호</label>
                     <input
                         type={pwdType}
                         placeholder="password"
@@ -196,7 +194,7 @@ const SignUp = () => {
                         </p>
                     )}
                     {errors.passwordConfirm && (
-                        <p className="err-msg">Passwords do not match.</p>
+                        <p className="err-msg">비밀번호가 일치하지 않습니다.</p>
                     )}
                     <div className="show-pwd-area">
                         <input
@@ -210,11 +208,11 @@ const SignUp = () => {
                                 }
                             }}
                         />
-                        <label htmlFor="show-password">Show password</label>
+                        <label htmlFor="show-password">비밀번호 보기</label>
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="nickname">Nickname</label>
+                    <label htmlFor="nickname">닉네임</label>
                     <input
                         type="text"
                         name="nickname"
@@ -231,18 +229,18 @@ const SignUp = () => {
                         errors.nickname?.type === "minLength" ||
                         errors.nickname?.type === "maxLength") && (
                         <p className="err-msg">
-                            Please write a nickname between 3 and 8 letters.
+                            닉네임은 3자에서 8자까지 가능합니다.
                         </p>
                     )}
                     {errors.nickname?.type === "validate" && (
                         <p className="err-msg">
-                            This nickname has existed. Please try again another
-                            nickname.
+                            이미 존재하는 닉네임입니다. 다른 닉네임으로
+                            시도해주세요.
                         </p>
                     )}
                 </div>
                 <div className="sign-up-btn-area">
-                    <SubmitBtn text="Sign Up" />
+                    <SubmitBtn text="회원가입" />
                 </div>
             </form>
         </div>

@@ -33,7 +33,7 @@ const NewCard = () => {
     return (
         <div className="new-card">
             <h1>New Card</h1>
-            <p className="page-desc">Please enter the URL to save.</p>
+            <p className="page-desc">저장할 URL을 입력해주세요.</p>
             {/* <p className="page-desc">
                 If you don't change the status of the saved URL to read, it will
                 go to Trash after 90 days.
@@ -41,7 +41,7 @@ const NewCard = () => {
             {/* <p className="page-desc">This option can be changed in Setting.</p> */}
             <form className="form-area" onSubmit={handleSubmit(onSubmitCard)}>
                 <div className="select-drawer">
-                    <label htmlFor="drawer-name">Drawer name</label>
+                    <label htmlFor="drawer-name">Drawer 이름</label>
                     <select
                         name="drawerId"
                         id="drawer-name"
@@ -56,7 +56,7 @@ const NewCard = () => {
                                 {standardForNewCard.name}
                             </option>
                         ) : (
-                            <option value={null}>select drawer(options)</option>
+                            <option value={null}>Drawer 선택(옵션)</option>
                         )}
                         {drawerList.length &&
                             drawerList.map((drawer, index) => (
@@ -67,7 +67,7 @@ const NewCard = () => {
                     </select>
                 </div>
                 <div className="title-area">
-                    <label htmlFor="card-title">Title</label>
+                    <label htmlFor="card-title">제목</label>
                     <input
                         type="text"
                         name="title"
@@ -77,7 +77,7 @@ const NewCard = () => {
                     />
                 </div>
                 <div className="url-area">
-                    <label htmlFor="card-url">Url</label>
+                    <label htmlFor="card-url">URL</label>
                     <input
                         type="text"
                         id="card-url"
@@ -87,7 +87,7 @@ const NewCard = () => {
                 </div>
                 <div className="desc-area">
                     <label htmlFor="card-description">
-                        Description<span>{descLength}/140</span>
+                        설명<span>{descLength}/140</span>
                     </label>
                     <textarea
                         id="card-description"
@@ -98,9 +98,7 @@ const NewCard = () => {
                         onChange={(e) => setDescLength(e.target.value.length)}
                     />
                     {errors.desc && (
-                        <p className="err-msg">
-                            Please write within 140 characters.
-                        </p>
+                        <p className="err-msg">140자 이내로 입력해주세요.</p>
                     )}
                 </div>
                 <div className="btn-area">

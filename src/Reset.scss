@@ -54,9 +54,9 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     -webkit-transition: background-color 9999s ease-out;
-    -webkit-box-shadow: 0 0 0px 1000px $gray-900 inset !important;
-    -webkit-text-fill-color: #fff !important;
-    border-color: $gray-500 !important;
+    -webkit-box-shadow: 0 0 0px 1000px $gray-50 inset !important;
+    -webkit-text-fill-color: $gray-700 !important;
+    border-color: rgba($color: $gray-900, $alpha: 0.1) !important;
 }
 
 #root {
@@ -72,7 +72,7 @@ input:-webkit-autofill:active {
 .main-contents {
     width: 100%;
     overflow-y: auto;
-    background-color: $gray-900;
+    background-color: $gray-50;
 
     .main-contents-body {
         padding: 1rem;
@@ -94,7 +94,7 @@ input:-webkit-autofill:active {
     position: absolute;
     top: 0.7rem;
     right: 0.7rem;
-    color: $gray-100;
+    color: $gray-600;
 
     .corner-btn {
         border-radius: 40%;
