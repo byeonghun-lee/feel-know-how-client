@@ -198,7 +198,7 @@ const SideBar = ({ isLogin }) => {
                                 }
                             >
                                 <AccountBoxIcon className="category-icon" />
-                                <p>Login</p>
+                                <p>로그인</p>
                             </SideBarLink>
                         </li>
                         <li
@@ -214,7 +214,7 @@ const SideBar = ({ isLogin }) => {
                                 }
                             >
                                 <PersonAddIcon className="category-icon" />
-                                <p>New accounts</p>
+                                <p>회원가입</p>
                             </SideBarLink>
                         </li>
                     </ul>

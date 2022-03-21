@@ -56,10 +56,10 @@ const Login = () => {
 
     return (
         <div className="login-page">
-            <h1>Login</h1>
+            <h1>로그인</h1>
             <form onSubmit={handleSubmit(onLogin)} className="login-form">
                 <div className="id-field">
-                    <label htmlFor="user-id">ID</label>
+                    <label htmlFor="user-id">아이디(이메일)</label>
                     <input
                         type="text"
                         name="email"
@@ -72,10 +72,10 @@ const Login = () => {
                     />
                 </div>
                 {errors.email && (
-                    <p className="err-msg">Please enter your e-mail.</p>
+                    <p className="err-msg">이메일을 입력해주세요.</p>
                 )}
                 <div className="pwd-field">
-                    <label htmlFor="user-pwd">Password</label>
+                    <label htmlFor="user-pwd">비밀번호</label>
                     <input
                         type="password"
                         id="user-pwd"
@@ -88,16 +88,16 @@ const Login = () => {
                     />
                 </div>
                 {errors.password && (
-                    <p className="err-msg">Please enter your password.</p>
+                    <p className="err-msg">비밀번호를 입력해주세요.</p>
                 )}
                 {errors.loginError && (
                     <p className="err-msg">{errors.loginError.message}</p>
                 )}
                 <div className="login-btn-area">
-                    <SubmitBtn text="LOGIN" />
+                    <SubmitBtn text="로그인" />
                 </div>
                 <Link to="/sign-up" className="move-to-register-page">
-                    Create New Account
+                    회원가입
                 </Link>
             </form>
         </div>

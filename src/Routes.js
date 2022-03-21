@@ -20,9 +20,9 @@ export default () => (
         <Route exact path="/login">
             <Login />
         </Route>
-        <Route path="/@:nickName">
+        <Route path="/@:nickname">
             <Switch>
-                <Route exact path={`/@:nickName/:drawerName`}>
+                <Route exact path={`/@:nickname/:drawerName`}>
                     <Drawer />
                 </Route>
             </Switch>

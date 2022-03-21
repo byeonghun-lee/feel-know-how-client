@@ -2,8 +2,9 @@ import React from "react";
 
 import Switch from "@material-ui/core/Switch";
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
-import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
-import LaunchRoundedIcon from "@material-ui/icons/LaunchRounded";
+// import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
+// import LaunchRoundedIcon from "@material-ui/icons/LaunchRounded";
+import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import { withStyles } from "@material-ui/core/styles";
 
 import "./CardComponent.scss";
@@ -26,7 +27,12 @@ const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
     const siteNameUrl = cardInfo.url.replace("https://", "").split("/")[0];
 
     return (
-        <div className="card-component">
+        <a
+            className="card-component"
+            href={cardInfo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <div className="corner-btn-area">
                 <MoreVertRoundedIcon className="corner-btn" />
             </div>
@@ -37,19 +43,19 @@ const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <LinkRoundedIcon className="link-icon" />
+                    <OpenInNewRoundedIcon className="link-icon" />
                     <h3 className="card-component-title">{cardInfo.title}</h3>
                 </a>
                 <p className="card-component-desc">{cardInfo.desc}</p>
                 <ul className="status-list">
                     <li>
-                        <h4>Link</h4>
+                        <h4>Site Name</h4>
                         <div className="site-url-tag">
                             {siteNameUrl.split(".").length > 2
                                 ? siteNameUrl.split(".")[1]
                                 : siteNameUrl.split(".")[0]}
                         </div>
-                        <a
+                        {/* <a
                             href={cardInfo.url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -57,19 +63,24 @@ const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
                         >
                             <LaunchRoundedIcon className="launch-icon" />
                             link
-                        </a>
+                        </a> */}
                     </li>
                     <li>
                         <h4>Read Status</h4>
                         <PurpleSwitch
                             checked={cardInfo.isRead}
-                            onChange={() => onToggleReadStatus(cardInfo._id)}
+                            onChange={(e) =>
+                                onToggleReadStatus({
+                                    cardId: cardInfo._id,
+                                    e,
+                                })
+                            }
                         />
                     </li>
                 </ul>
                 {/* <p className="card-component-url">{cardInfo.url}</p> */}
             </div>
-        </div>
+        </a>
     );
 };
 

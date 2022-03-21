@@ -11,7 +11,15 @@ import {
 
 export function* getCardSaga(action) {
     try {
-        const result = yield call(cardAPI.getCard, action.payload);
+        let result;
+        if (
+            action.payload.drawerName === "inbox" ||
+            action.payload.drawerName === "trash"
+        ) {
+            result = yield call(cardAPI.getTempCard, action.payload);
+        } else {
+            result = yield call(cardAPI.getCard, action.payload);
+        }
         yield put(getListSuccess(result.data));
     } catch (error) {
         yield put(getListFail(error.message));

@@ -6,8 +6,7 @@
     position: relative;
     width: 25rem;
     height: 13rem;
-    border: 2px solid rgba($color: $gray-500, $alpha: 0.5);
-    border-radius: 1rem;
+    border-top: 1px solid $amber-800;
     overflow: hidden;
     cursor: pointer;
 
@@ -17,11 +16,6 @@
         margin: 0.3rem 0;
 
         pointer-events: none;
-    }
-
-    &:hover {
-        border-color: $amber-800;
-        border-width: 2px;
     }
 
     .text-contents {
