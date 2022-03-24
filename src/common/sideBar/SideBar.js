@@ -79,9 +79,17 @@ const SideBar = ({ isLogin }) => {
                     </div>
                     <h3>Best Drawer</h3>
                 </SideBarLink>
+                <SideBarLink
+                    to="/new-drawer"
+                    className="move-to-new-drawer-page"
+                    handleSideMenuStatusInMobile={handleSideMenuStatusInMobile}
+                >
+                    <AddTwoToneIcon className="add-drawer-icon" />
+                    New Drawer
+                </SideBarLink>
             </div>
             {isLogin ? (
-                <>
+                <div className="user-side-bar">
                     <ul>
                         {drawerList.length
                             ? drawerList.map((drawer, index) => (
@@ -171,17 +179,7 @@ const SideBar = ({ isLogin }) => {
                             </SideBarLink>
                         </li>
                     </ul>
-                    <SideBarLink
-                        to="/new-drawer"
-                        className="move-to-new-drawer-page"
-                        handleSideMenuStatusInMobile={
-                            handleSideMenuStatusInMobile
-                        }
-                    >
-                        <AddTwoToneIcon className="add-drawer-icon" />
-                        New Drawer
-                    </SideBarLink>
-                </>
+                </div>
             ) : (
                 <>
                     <ul className="non-login">

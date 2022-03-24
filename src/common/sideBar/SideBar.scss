@@ -16,6 +16,8 @@
         transform: translateX(-100%);
         z-index: 100;
         transition: transform 0.5s;
+        height: 100%;
+        box-sizing: border-box;
 
         &.show-mobile-side-menu {
             transform: translateX(0);
@@ -29,7 +31,7 @@
         right: 0;
         transform: translateX(130%);
         border: 3px solid $amber-700;
-        background-color: rgba($color: $gray-900, $alpha: 0.7);
+        background-color: rgba($color: $gray-50, $alpha: 0.7);
         color: $amber-700;
         border-radius: 0.7rem;
 
@@ -61,18 +63,18 @@
     }
 
     .main-box-area {
-        display: flex;
-        align-items: center;
         margin: 0 0.7rem;
-        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
 
         .move-to-main-btn {
             display: flex;
             align-items: center;
             padding: 0.7rem 2rem;
-            border: 2px solid $amber-700;
+            border: 2px solid $amber-800;
             border-radius: 0.8rem;
             width: 100%;
+            margin-bottom: 1rem;
         }
 
         .best-list-icon-wrapper {
@@ -103,6 +105,12 @@
         // }
     }
 
+    .user-side-bar {
+        // height: inherit;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     .category-item {
         margin: 5px 0.7rem;
         color: rgba($color: $gray-800, $alpha: 0.7);
@@ -129,6 +137,10 @@
                 height: 6px;
                 background-color: $amber-800;
                 border-radius: 50%;
+
+                @include mobile {
+                    display: none;
+                }
             }
 
             .active-icon {
@@ -165,17 +177,13 @@
     }
 
     .move-to-new-drawer-page {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
         display: flex;
         align-items: center;
         font-size: 1rem;
         padding: 0.7rem 3rem;
         border: 2px solid $amber-800;
-        border-radius: 1rem;
-        color: $amber-900;
+        border-radius: 0.8rem;
+        color: $amber-700;
         font-weight: 700;
         white-space: nowrap;
         cursor: pointer;
@@ -186,8 +194,7 @@
         }
 
         &:hover {
-            background-color: $amber-800;
-            color: $gray-50;
+            color: $amber-900;
         }
     }
 
