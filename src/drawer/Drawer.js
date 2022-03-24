@@ -53,6 +53,7 @@ const Drawer = () => {
                 <CardComponent
                     key={index}
                     cardInfo={cardInfo}
+                    isOwner={cardListPage.isOwner}
                     onToggleReadStatus={onToggleReadStatus}
                 />
             ))}

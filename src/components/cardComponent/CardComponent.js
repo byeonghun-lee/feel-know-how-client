@@ -1,7 +1,6 @@
 import React from "react";
 
 import Switch from "@material-ui/core/Switch";
-import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 // import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
 // import LaunchRoundedIcon from "@material-ui/icons/LaunchRounded";
 import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
@@ -23,7 +22,7 @@ const PurpleSwitch = withStyles({
     track: {},
 })(Switch);
 
-const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
+const CardComponent = ({ cardInfo, onToggleReadStatus, isOwner }) => {
     const siteNameUrl = cardInfo.url.replace("https://", "").split("/")[0];
 
     return (
@@ -34,7 +33,7 @@ const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
             rel="noopener noreferrer"
         >
             <div className="corner-btn-area">
-                <MoreVertRoundedIcon className="corner-btn" />
+                <OpenInNewRoundedIcon className="link-icon" />
             </div>
             <div className="text-contents">
                 <a
@@ -43,7 +42,6 @@ const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <OpenInNewRoundedIcon className="link-icon" />
                     <h3 className="card-component-title">{cardInfo.title}</h3>
                 </a>
                 <p className="card-component-desc">{cardInfo.desc}</p>
@@ -78,6 +76,11 @@ const CardComponent = ({ cardInfo, onToggleReadStatus }) => {
                         />
                     </li>
                 </ul>
+                {isOwner && (
+                    <button type="button" className="edit-btn">
+                        수정
+                    </button>
+                )}
                 {/* <p className="card-component-url">{cardInfo.url}</p> */}
             </div>
         </a>
