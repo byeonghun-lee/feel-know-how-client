@@ -1,6 +1,19 @@
 @import "styles";
 
 .drawer-page {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .drawer-contents {
+        flex: 1;
+    }
+
     h2 {
         font-size: 1.1rem;
         color: $gray-700;
@@ -44,6 +57,19 @@
 
         li + li {
             margin-left: 5px;
+        }
+    }
+
+    .kakao-ad-box {
+        margin-right: 2rem;
+        width: 160px;
+        height: 600px;
+
+        @include mobile {
+            margin-right: 0;
+            margin-bottom: 1rem;
+            width: 320px;
+            height: 50px;
         }
     }
 }
