@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import cx from "classnames";
 
-const SideBarLink = ({ children, handleSideMenuStatusInMobile, ...rest }) => {
+import "./SideBarLink.scss";
+
+const SideBarLink = ({
+    children,
+    handleSideMenuStatusInMobile,
+    active,
+    ...rest
+}) => {
     const closeSidebar = () => {
         if (window.innerWidth > 768) {
             return;
@@ -10,7 +18,11 @@ const SideBarLink = ({ children, handleSideMenuStatusInMobile, ...rest }) => {
     };
 
     return (
-        <Link {...rest} onClick={closeSidebar}>
+        <Link
+            {...rest}
+            onClick={closeSidebar}
+            className={cx("side-bar-link", { active: active })}
+        >
             {children}
         </Link>
     );
