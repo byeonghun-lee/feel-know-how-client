@@ -45,9 +45,7 @@ const NewDrawer = () => {
                         ref={register({ required: true })}
                     />
                     {errors.name && (
-                        <p className="err-msg">
-                            Please enter the drawer's name.
-                        </p>
+                        <p className="err-msg">Drawer의 이름을 입력해주세요.</p>
                     )}
                 </div>
                 <div>
@@ -58,19 +56,19 @@ const NewDrawer = () => {
                     <textarea
                         name="desc"
                         id="drawer-desc"
-                        placeholder="Please write a description for the drawer."
+                        placeholder="Drawer를 설명해주세요."
                         ref={register({ maxLength: 140 })}
                         onChange={(e) => setDescLength(e.target.value.length)}
                         onBlur={() => trigger("desc")}
                     />
                     {errors.desc && (
                         <p className="err-msg">
-                            The description cannot exceed 140 characters.
+                            설명은 140자를 넘길 수 없습니다.
                         </p>
                     )}
                 </div>
                 <div className="row-item">
-                    <label htmlFor="drawer-all-public">Public:</label>
+                    <label htmlFor="drawer-all-public">공개 여부:</label>
                     <input
                         type="checkbox"
                         name="allPublic"
@@ -93,9 +91,9 @@ const NewDrawer = () => {
                         })}
                     />
                     <p>
-                        Please separate with a <span>,(comma)</span>.
+                        태그의 구분은<span>,(콤마)</span>로 해주세요.
                     </p>
-                    <p>The tag cannot overed 5 characters.</p>
+                    <p>태그는 5글자를 넘길 수 없습니다.</p>
                 </div>
                 <div className="btn-area">
                     <SubmitBtn />
