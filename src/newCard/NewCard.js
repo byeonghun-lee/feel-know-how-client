@@ -40,6 +40,41 @@ const NewCard = () => {
             </p> */}
             {/* <p className="page-desc">This option can be changed in Setting.</p> */}
             <form className="form-area" onSubmit={handleSubmit(onSubmitCard)}>
+                <div className="url-area">
+                    <label htmlFor="card-url">URL</label>
+                    <input
+                        type="text"
+                        id="card-url"
+                        name="url"
+                        ref={register({ required: true })}
+                    />
+                </div>
+                <div className="title-area">
+                    <label htmlFor="card-title">제목</label>
+                    <input
+                        type="text"
+                        name="title"
+                        id="card-title"
+                        placeholder="Card title"
+                        ref={register}
+                    />
+                </div>
+                <div className="desc-area">
+                    <label htmlFor="card-description">
+                        설명<span>{descLength}/140</span>
+                    </label>
+                    <textarea
+                        id="card-description"
+                        placeholder="Description of this card"
+                        name="desc"
+                        ref={register({ maxLength: 140 })}
+                        onBlur={() => trigger("desc")}
+                        onChange={(e) => setDescLength(e.target.value.length)}
+                    />
+                    {errors.desc && (
+                        <p className="err-msg">140자 이내로 입력해주세요.</p>
+                    )}
+                </div>
                 <div className="select-drawer">
                     <label htmlFor="drawer-name">Drawer 이름</label>
                     <select
@@ -65,41 +100,6 @@ const NewCard = () => {
                                 </option>
                             ))}
                     </select>
-                </div>
-                <div className="title-area">
-                    <label htmlFor="card-title">제목</label>
-                    <input
-                        type="text"
-                        name="title"
-                        id="card-title"
-                        placeholder="Card title"
-                        ref={register}
-                    />
-                </div>
-                <div className="url-area">
-                    <label htmlFor="card-url">URL</label>
-                    <input
-                        type="text"
-                        id="card-url"
-                        name="url"
-                        ref={register({ required: true })}
-                    />
-                </div>
-                <div className="desc-area">
-                    <label htmlFor="card-description">
-                        설명<span>{descLength}/140</span>
-                    </label>
-                    <textarea
-                        id="card-description"
-                        placeholder="Description of this card"
-                        name="desc"
-                        ref={register({ maxLength: 140 })}
-                        onBlur={() => trigger("desc")}
-                        onChange={(e) => setDescLength(e.target.value.length)}
-                    />
-                    {errors.desc && (
-                        <p className="err-msg">140자 이내로 입력해주세요.</p>
-                    )}
                 </div>
                 <div className="btn-area">
                     <SubmitBtn />
