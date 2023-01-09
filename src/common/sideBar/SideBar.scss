@@ -26,6 +26,11 @@
         }
     }
 
+    .logo {
+        width: 10rem;
+        height: auto;
+    }
+
     .mobile-side-menu-btn {
         display: none;
         position: absolute;
@@ -51,13 +56,16 @@
             color: $gray-800;
             padding-left: $side-bar-right-padding;
         }
+
+        display: flex;
+        justify-content: center;
     }
 
     h2 {
         font-size: 0.9rem;
         color: $gray-700;
         font-weight: 700;
-        padding: 0 $side-bar-right-padding;
+        padding: 1rem $side-bar-right-padding 0.5rem;
 
         @include mobile {
             font-size: 0.8rem;
@@ -77,8 +85,6 @@
     }
 
     .user-side-bar {
-        // overflow-y: auto;
-        overflow-x: hidden;
         margin: 0 0.7rem;
     }
 

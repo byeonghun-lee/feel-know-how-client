@@ -21,6 +21,8 @@ import SideBarLink from "components/sideBarLink/SideBarLink";
 
 import "./SideBar.scss";
 
+import logo from "../../assets/ohMyDrawerLogo.png";
+
 const SideBar = ({ isLogin }) => {
     const location = useLocation();
     const dispatch = useDispatch();
@@ -66,26 +68,34 @@ const SideBar = ({ isLogin }) => {
                 )}
             </button>
             <div className="title-area">
-                {isLogin ? <h1>{nickname}'s drawer</h1> : <h1>oh My Drawer</h1>}
+                <img src={logo} alt="oh My Drawer logo" className="logo" />
             </div>
-            <div className="main-box-area">
-                <SideBarLink
-                    to="/"
-                    handleSideMenuStatusInMobile={handleSideMenuStatusInMobile}
-                    active={location.pathname === "/"}
-                >
-                    <StarRoundedIcon className="best-list-icon" />
-                    <h3>Best Drawer</h3>
-                </SideBarLink>
-                <SideBarLink
-                    to="/new-drawer"
-                    handleSideMenuStatusInMobile={handleSideMenuStatusInMobile}
-                    active={location.pathname === "/new-drawer"}
-                >
-                    <AddTwoToneIcon className="add-drawer-icon" />
-                    <h3>New Drawer</h3>
-                </SideBarLink>
-            </div>
+            <ul className="main-box-area">
+                <li onClick={() => setActiveItem({})}>
+                    <SideBarLink
+                        to="/"
+                        handleSideMenuStatusInMobile={
+                            handleSideMenuStatusInMobile
+                        }
+                        active={location.pathname === "/"}
+                    >
+                        <StarRoundedIcon className="best-list-icon" />
+                        <h3>Best Drawer</h3>
+                    </SideBarLink>
+                </li>
+                <li onClick={() => setActiveItem({})}>
+                    <SideBarLink
+                        to="/new-drawer"
+                        handleSideMenuStatusInMobile={
+                            handleSideMenuStatusInMobile
+                        }
+                        active={location.pathname === "/new-drawer"}
+                    >
+                        <AddTwoToneIcon className="add-drawer-icon" />
+                        <h3>New Drawer</h3>
+                    </SideBarLink>
+                </li>
+            </ul>
             {isLogin ? (
                 <div className="user-side-bar">
                     <ul>
