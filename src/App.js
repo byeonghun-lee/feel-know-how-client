@@ -7,7 +7,7 @@ import { isMobile } from "react-device-detect";
 import SideBar from "common/sideBar/SideBar";
 import Header from "common/header/Header";
 import MobileNavigation from "common/mobileNavigation/MobileNavigation";
-import CheckCopiedLink from "common/checkCopiedLink/CheckCopiedLink";
+// import CheckCopiedLink from "common/checkCopiedLink/CheckCopiedLink";
 // import LoginModal from "common/loginModal/LoginModal";
 import Routes from "Routes";
 
@@ -21,7 +21,7 @@ function App() {
             <div className="App">
                 {/* <LoginModal isLogin={isLogin} /> */}
                 {!isMobile && <SideBar isLogin={isLogin} />}
-                <CheckCopiedLink isLogin={isLogin} />
+                {/* <CheckCopiedLink isLogin={isLogin} /> */}
                 <Header />
                 <div
                     className={cx("main-contents", {
