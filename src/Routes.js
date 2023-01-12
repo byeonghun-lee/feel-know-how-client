@@ -11,6 +11,7 @@ import Login from "login/Login";
 import SignUp from "signUp/SignUp";
 import SettingPage from "settingPage/SettingPage";
 import Search from "search/Search";
+import DrawerList from "drawerList/DrawerList";
 
 export default () => (
     <Switch>
@@ -32,6 +33,9 @@ export default () => (
         </PrivateRoute>
         <PrivateRoute exact path="/new-drawer">
             <NewDrawer />
+        </PrivateRoute>
+        <PrivateRoute path="/drawers">
+            <DrawerList />
         </PrivateRoute>
         <PrivateRoute path="/in-box">
             <Drawer />

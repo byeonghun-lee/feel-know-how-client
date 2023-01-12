@@ -1,0 +1,28 @@
+@import "styles";
+
+.drawer-list-page {
+    .move-to-new-drawer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $gray-300;
+        border-radius: 0.4rem;
+        height: 3.5rem;
+
+        h3 {
+            margin-left: 0.3rem;
+        }
+    }
+
+    .drawer-item {
+        a {
+            display: flex;
+            align-items: center;
+            height: 3.5rem;
+        }
+
+        .drawer-name {
+            margin-left: 1.5rem;
+        }
+    }
+}
