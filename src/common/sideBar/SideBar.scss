@@ -7,7 +7,8 @@
     height: 100%;
     position: relative;
     overflow-y: auto;
-    border-right: 2.5px solid rgba($color: $gray-900, $alpha: 0.1);
+    border-right: 2px solid rgba($color: $gray-900, $alpha: 0.1);
+    padding-top: 2.1rem;
 
     @include mobile {
         position: absolute;
@@ -26,11 +27,6 @@
         }
     }
 
-    .logo {
-        width: 10rem;
-        height: auto;
-    }
-
     .mobile-side-menu-btn {
         display: none;
         position: absolute;
@@ -45,13 +41,6 @@
         @include mobile {
             display: inline-block;
         }
-    }
-
-    .title-area {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-
-        padding-left: 2.75rem;
     }
 
     h2 {

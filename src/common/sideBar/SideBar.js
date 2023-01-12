@@ -21,8 +21,6 @@ import SideBarLink from "components/sideBarLink/SideBarLink";
 
 import "./SideBar.scss";
 
-import logo from "../../assets/ohMyDrawerLogo.png";
-
 const SideBar = ({ isLogin }) => {
     const location = useLocation();
     const dispatch = useDispatch();
@@ -67,9 +65,6 @@ const SideBar = ({ isLogin }) => {
                     <MenuRoundedIcon style={{ fontSize: 30 }} />
                 )}
             </button>
-            <div className="title-area">
-                <img src={logo} alt="oh My Drawer logo" className="logo" />
-            </div>
             <ul className="main-box-area">
                 <li onClick={() => setActiveItem({})}>
                     <SideBarLink

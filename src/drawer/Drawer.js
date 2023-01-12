@@ -94,7 +94,7 @@ const Drawer = () => {
                     ))}
                 </div>
             </div>
-            {cardListPage.isOwner && <AddCardBtn />}
+            {cardListPage.isOwner && !isMobile && <AddCardBtn />}
         </div>
     );
 };
