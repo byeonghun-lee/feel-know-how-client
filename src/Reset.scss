@@ -66,7 +66,12 @@ input:-webkit-autofill:active {
 .App {
     display: flex;
     flex-direction: row;
+    padding-top: $header-height;
     height: 100%;
+
+    @include mobile {
+        padding-bottom: $mobile-navi-height;
+    }
 }
 
 .main-contents {

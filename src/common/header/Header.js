@@ -7,26 +7,33 @@ import PermIdentityRoundedIcon from "@material-ui/icons/PermIdentityRounded";
 
 import "./Header.scss";
 
+import logo from "../../assets/ohMyDrawerLogo.png";
+
 const Header = () => {
     const user = useSelector(({ auth }) => auth.info);
 
     return (
         <header className="main-header">
-            <div className="header-icon">
-                <Link to="/search">
-                    <SearchRoundedIcon />
-                </Link>
+            <div className="logo-area">
+                <img src={logo} alt="oh My Drawer logo" className="logo" />
             </div>
-            {user && (
-                <>
-                    <div className="header-icon">
-                        <NotificationsNoneRoundedIcon />
-                    </div>
-                    <div className="header-icon">
-                        <PermIdentityRoundedIcon />
-                    </div>
-                </>
-            )}
+            <div>
+                <div className="header-icon">
+                    <Link to="/search">
+                        <SearchRoundedIcon />
+                    </Link>
+                </div>
+                {user && (
+                    <>
+                        <div className="header-icon">
+                            <NotificationsNoneRoundedIcon />
+                        </div>
+                        <div className="header-icon">
+                            <PermIdentityRoundedIcon />
+                        </div>
+                    </>
+                )}
+            </div>
         </header>
     );
 };

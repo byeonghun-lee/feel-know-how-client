@@ -1,9 +1,30 @@
 @import "styles";
 
 .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
-    justify-content: flex-end;
-    padding: 1rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.6rem;
+    width: 100%;
+    height: $header-height;
+    background-color: $gray-50;
+    border-bottom: 2px solid rgba($color: $gray-900, $alpha: 0.1);
+
+    @include mobile {
+        padding: 1rem 1rem;
+    }
+
+    .logo {
+        width: 10rem;
+        height: auto;
+
+        @include mobile {
+            width: 7rem;
+        }
+    }
 
     .header-icon {
         display: flex;
