@@ -26,10 +26,11 @@
         }
     }
 
-    .header-icon {
+    .header-btn-area {
         display: flex;
-        justify-content: center;
-        align-items: center;
+    }
+
+    .header-icon {
         margin-left: 0.5rem;
         color: $amber-400;
         width: 2rem;

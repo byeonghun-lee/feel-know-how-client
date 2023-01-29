@@ -17,7 +17,7 @@ const Header = () => {
             <div className="logo-area">
                 <img src={logo} alt="oh My Drawer logo" className="logo" />
             </div>
-            <div>
+            <div className="header-btn-area">
                 <div className="header-icon">
                     <Link to="/search">
                         <SearchRoundedIcon />
