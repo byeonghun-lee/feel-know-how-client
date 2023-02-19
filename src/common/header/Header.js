@@ -7,7 +7,7 @@ import PermIdentityRoundedIcon from "@material-ui/icons/PermIdentityRounded";
 
 import "./Header.scss";
 
-import logo from "../../assets/ohMyDrawerLogo.png";
+import logo from "../../assets/PurrgilPin.png";
 
 const Header = () => {
     const user = useSelector(({ auth }) => auth.info);
