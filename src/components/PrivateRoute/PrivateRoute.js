@@ -13,7 +13,9 @@ const PrivateRoute = ({ children, ...rest }) => {
                 isLogin ? (
                     children
                 ) : (
-                    <Redirect to={`/login?${pathname.substring(1)}`}></Redirect>
+                    <Redirect
+                        to={`/login?return-page=${pathname.substring(1)}`}
+                    ></Redirect>
                 )
             }
         ></Route>

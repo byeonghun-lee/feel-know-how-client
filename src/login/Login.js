@@ -32,7 +32,10 @@ const Login = () => {
             localStorage.setItem("user", JSON.stringify(user));
 
             if (location.search) {
-                // 이전 페이지로 보내기
+                if (location.search.indexOf("return-page") >= 0) {
+                    const pathName = location.search.split("=")[1];
+                    history.push(`/${pathName}`);
+                }
             } else {
                 history.push("/");
             }
