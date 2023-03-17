@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import cx from "classnames";
@@ -15,6 +15,32 @@ import "./Reset.scss";
 
 function App() {
     const isLogin = useSelector(({ auth }) => auth.info);
+
+    useEffect(() => {
+        window.addEventListener("message", (event) => {
+            if (
+                event &&
+                typeof event.data === "string" &&
+                event.data.indexOf("mimeType") >= 0
+            ) {
+                const webviewData =
+                    event && event.data && JSON.parse(event.data);
+
+                if (
+                    webviewData &&
+                    webviewData.data &&
+                    webviewData.mimeType === "text/plain"
+                ) {
+                    localStorage.setItem("sharedUrl", webviewData.data);
+                    if (isLogin) {
+                        window.location.href = "/new-card";
+                    } else {
+                        window.location.href = "/login?return-page=new-card";
+                    }
+                }
+            }
+        });
+    }, []);
 
     return (
         <BrowserRouter>
