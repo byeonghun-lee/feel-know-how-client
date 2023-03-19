@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { createCard as createCardAPI } from "api/card";
@@ -8,7 +8,9 @@ import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 import "./NewCard.scss";
 
 const NewCard = () => {
-    const { register, handleSubmit, errors, reset, trigger } = useForm();
+    const sharedUrl = localStorage.getItem("sharedUrl");
+    const { register, handleSubmit, errors, reset, trigger, setValue } =
+        useForm();
     const [descLength, setDescLength] = useState(0);
 
     const drawerList = useSelector(({ drawer }) => drawer.list);
@@ -29,6 +31,12 @@ const NewCard = () => {
             console.log(error);
         }
     };
+
+    useEffect(() => {
+        if (sharedUrl) {
+            setValue("url", sharedUrl);
+        }
+    }, []);
 
     return (
         <div className="new-card">
