@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import cx from "classnames";
@@ -15,13 +15,9 @@ import "./Reset.scss";
 
 function App() {
     const isLogin = useSelector(({ auth }) => auth.info);
-    const [value, setValue] = useState();
 
     useEffect(() => {
         window.addEventListener("message", (event) => {
-            if (event) {
-                setValue(JSON.stringify(event) + JSON.stringify(event.data));
-            }
             if (
                 event &&
                 typeof event.data === "string" &&
@@ -44,18 +40,27 @@ function App() {
                 }
             }
         });
+
+        window.onmessageerror = (event) => {
+            window.ReactNativeWebView.postMessage(event);
+        };
     }, []);
 
     return (
         <BrowserRouter>
             <div className="App">
+                <button
+                    onClick={() => {
+                        const url = localStorage.getItem("sharedUrl");
+                        window.ReactNativeWebView.postMessage(url);
+                    }}
+                >
+                    test
+                </button>
                 {/* <LoginModal isLogin={isLogin} /> */}
                 {!isMobile && <SideBar isLogin={isLogin} />}
                 {/* <CheckCopiedLink isLogin={isLogin} /> */}
                 <Header />
-                <div>
-                    <p>Event:{value}</p>
-                </div>
                 <div
                     className={cx("main-contents", {
                         "side-bar-visible": isLogin,
