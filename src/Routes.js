@@ -12,6 +12,7 @@ import SignUp from "signUp/SignUp";
 import SettingPage from "settingPage/SettingPage";
 import Search from "search/Search";
 import DrawerList from "drawerList/DrawerList";
+import PrivacyPolicy from "privacyPolicy/PrivacyPolicy";
 
 export default () => (
     <Switch>
@@ -49,6 +50,9 @@ export default () => (
         </Route>
         <Route path="/sign-up">
             <SignUp />
+        </Route>
+        <Route path="/privacy-policy">
+            <PrivacyPolicy />
         </Route>
     </Switch>
 );
