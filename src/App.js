@@ -49,14 +49,14 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <button
+                {/* <button
                     onClick={() => {
                         const url = localStorage.getItem("sharedUrl");
                         window.ReactNativeWebView.postMessage(url);
                     }}
                 >
                     test
-                </button>
+                </button> */}
                 {/* <LoginModal isLogin={isLogin} /> */}
                 {!isMobile && <SideBar isLogin={isLogin} />}
                 {/* <CheckCopiedLink isLogin={isLogin} /> */}
