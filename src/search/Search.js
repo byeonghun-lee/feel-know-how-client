@@ -61,29 +61,31 @@ const Search = () => {
                     <div className="searched-list-area">
                         <h2>Drawer</h2>
                         <ul>
-                            {drawerList.length &&
-                                drawerList.map((drawer, drawerIndex) => (
-                                    <li>
-                                        <BestCardComponent
-                                            drawer={drawer}
-                                            key={drawerIndex}
-                                        />
-                                    </li>
-                                ))}
+                            {drawerList.length
+                                ? drawerList.map((drawer, drawerIndex) => (
+                                      <li>
+                                          <BestCardComponent
+                                              drawer={drawer}
+                                              key={drawerIndex}
+                                          />
+                                      </li>
+                                  ))
+                                : "검색 결과가 없습니다."}
                         </ul>
                     </div>
                     <div className="searched-list-area">
                         <h2>Card</h2>
                         <ul>
-                            {cardList.length &&
-                                cardList.map((card, cardIndex) => (
-                                    <li>
-                                        <CardComponent
-                                            cardInfo={card}
-                                            key={cardIndex}
-                                        />
-                                    </li>
-                                ))}
+                            {cardList.length
+                                ? cardList.map((card, cardIndex) => (
+                                      <li>
+                                          <CardComponent
+                                              cardInfo={card}
+                                              key={cardIndex}
+                                          />
+                                      </li>
+                                  ))
+                                : "검색 결과가 없습니다."}
                         </ul>
                     </div>
                 </>

@@ -32,7 +32,10 @@
     }
 
     .searched-list-area {
+        margin-bottom: 1rem;
+
         h2 {
+            margin-bottom: 1rem;
             color: $gray-300;
             font-weight: 600;
             font-size: 0.9rem;
@@ -40,6 +43,10 @@
 
         ul {
             display: flex;
+
+            @include mobile {
+                flex-direction: column;
+            }
         }
     }
 }
