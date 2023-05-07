@@ -27,6 +27,10 @@
             margin-top: 2px;
             font-size: 0.8rem;
         }
+
+        &.active {
+            color: $deep-purple-600;
+        }
     }
 
     .add-item {
@@ -34,6 +38,6 @@
     }
 
     .add-item-icon {
-        font-size: 3.2rem;
+        font-size: 3.7rem;
     }
 }
