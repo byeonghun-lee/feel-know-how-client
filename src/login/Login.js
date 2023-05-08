@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import cx from "classnames";
 import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+
 import "./Login.scss";
 
 const Login = () => {
@@ -16,6 +19,7 @@ const Login = () => {
     const { register, handleSubmit, setError, errors } = useForm();
 
     const [loginLoading, handleLoading] = useState(false);
+    const [alertNeedLoginStatus, handleAlert] = useState(false);
 
     const user = useSelector(({ auth }) => auth.info);
     const loginError = useSelector(({ auth }) => auth.loginError);
@@ -56,6 +60,12 @@ const Login = () => {
             handleLoading(false);
         }
     }, [needLogin]);
+
+    useEffect(() => {
+        if (location.search) {
+            handleAlert(true);
+        }
+    }, []);
 
     return (
         <div className="login-page">
@@ -103,6 +113,15 @@ const Login = () => {
                     회원가입
                 </Link>
             </form>
+            <Snackbar
+                open={alertNeedLoginStatus}
+                autoHideDuration={3000}
+                onClose={() => handleAlert(false)}
+            >
+                <MuiAlert elevation={10} variant="filled" severity="warning">
+                    로그인이 필요합니다.
+                </MuiAlert>
+            </Snackbar>
         </div>
     );
 };

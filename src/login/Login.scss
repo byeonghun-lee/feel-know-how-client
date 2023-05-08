@@ -82,4 +82,12 @@
             margin-top: 1.3rem;
         }
     }
+
+    .MuiSnackbar-anchorOriginBottomCenter {
+        bottom: 100px;
+
+        @include mobile {
+            bottom: 7rem;
+        }
+    }
 }
