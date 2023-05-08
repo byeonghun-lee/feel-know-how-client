@@ -15,8 +15,16 @@ const SignUp = () => {
     const history = useHistory();
     const emailRegExp =
         /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    const { register, errors, trigger, reset, watch, getValues, handleSubmit } =
-        useForm();
+    const {
+        register,
+        errors,
+        trigger,
+        reset,
+        watch,
+        getValues,
+        handleSubmit,
+        setError,
+    } = useForm();
     const [pwdType, setPwdType] = useState("password");
     const [verifiyBtnStatus, setVerifyBtnStatus] = useState(false);
 
@@ -33,11 +41,18 @@ const SignUp = () => {
         const res = await trigger("email");
 
         if (res) {
-            setVerifyBtnStatus(true);
-
             try {
                 const email = getValues("email");
-                await verifyEmailAPI(email);
+                const res = await verifyEmailAPI(email);
+
+                if (res.data === "Exist email.") {
+                    setError("email", {
+                        type: "custom",
+                        message: "이미 존재하는 이메일 입니다.",
+                    });
+                } else {
+                    setVerifyBtnStatus(true);
+                }
             } catch (error) {
                 console.log("error:", error);
             }
@@ -118,7 +133,9 @@ const SignUp = () => {
                             name="email"
                             ref={register({
                                 required: true,
-                                validate: (value) => emailRegExp.test(value),
+                                validate: (value) =>
+                                    emailRegExp.test(value) ||
+                                    "이메일 형식을 확인해주세요.",
                             })}
                             readOnly={verifiyBtnStatus}
                         />
@@ -138,7 +155,7 @@ const SignUp = () => {
                         </p>
                     )}
                     {errors.email && (
-                        <p className="err-msg">이메일 형식을 확인해주세요.</p>
+                        <p className="err-msg">{errors.email.message}</p>
                     )}
                 </div>
                 <div className="verification-code-area">
@@ -189,9 +206,7 @@ const SignUp = () => {
                         onBlur={() => trigger("passwordConfirm")}
                     />
                     {errors.password && (
-                        <p className="err-msg">
-                            Password length must have at least 8.
-                        </p>
+                        <p className="err-msg">최소 8자 이상 설정해주세요.</p>
                     )}
                     {errors.passwordConfirm && (
                         <p className="err-msg">비밀번호가 일치하지 않습니다.</p>
