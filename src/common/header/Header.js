@@ -1,16 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
-import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
-import PermIdentityRoundedIcon from "@material-ui/icons/PermIdentityRounded";
+// import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
+// import PermIdentityRoundedIcon from "@material-ui/icons/PermIdentityRounded";
 
 import "./Header.scss";
 
 import logo from "../../assets/PurrgilPin.png";
 
 const Header = () => {
-    const user = useSelector(({ auth }) => auth.info);
+    // const user = useSelector(({ auth }) => auth.info);
 
     return (
         <header className="main-header">
@@ -25,7 +25,7 @@ const Header = () => {
                         <SearchRoundedIcon />
                     </Link>
                 </div>
-                {user && (
+                {/* {user && (
                     <>
                         <div className="header-icon">
                             <NotificationsNoneRoundedIcon />
@@ -34,7 +34,7 @@ const Header = () => {
                             <PermIdentityRoundedIcon />
                         </div>
                     </>
-                )}
+                )} */}
             </div>
         </header>
     );
