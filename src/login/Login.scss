@@ -55,7 +55,8 @@
         }
     }
 
-    .move-to-register-page {
+    .move-to-register-page,
+    .move-to-policy-page {
         display: block;
         margin-top: 10px;
         font-weight: 500;
@@ -71,6 +72,11 @@
         &:hover {
             color: $amber-800;
         }
+    }
+
+    .move-to-policy-page {
+        margin-top: 2rem;
+        color: $gray-500;
     }
 
     .login-btn-area {

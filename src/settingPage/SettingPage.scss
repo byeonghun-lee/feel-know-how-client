@@ -1,0 +1,25 @@
+.setting-page {
+    margin-top: 5rem;
+    .contact-us {
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin-right: 1rem;
+        }
+    }
+
+    .logout-btn {
+        margin-top: 2rem;
+    }
+
+    .withdraw-area {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+
+        h3 {
+            margin-right: 1rem;
+        }
+    }
+}

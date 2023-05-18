@@ -112,6 +112,9 @@ const Login = () => {
                 <Link to="/sign-up" className="move-to-register-page">
                     회원가입
                 </Link>
+                <Link to="/privacy-policy" className="move-to-policy-page">
+                    개인정보처리방침
+                </Link>
             </form>
             <Snackbar
                 open={alertNeedLoginStatus}
