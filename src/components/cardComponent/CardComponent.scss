@@ -22,23 +22,20 @@
         height: 100%;
     }
 
-    .title-area {
+    .card-component-title {
         display: flex;
         align-items: center;
         color: $amber-800;
         margin-bottom: 7px;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .card-component-title {
         font-weight: 500;
         font-size: 1.1rem;
 
         @include mobile {
             font-size: 1.1rem;
+        }
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 
@@ -74,8 +71,17 @@
             }
 
             .site-url-tag {
-                background-color: $amber-800;
                 margin-right: 5px;
+                width: 80%;
+                color: $blue-700;
+                text-decoration: underline;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                @include mobile {
+                    width: 15rem;
+                }
             }
 
             .link-tag {
