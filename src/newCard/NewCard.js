@@ -17,7 +17,6 @@ const NewCard = () => {
     const standardForNewCard = useSelector(
         ({ drawer }) => drawer.standardForNewCard
     );
-
     const onSubmitCard = async (values) => {
         if (values.drawerId.indexOf("선택 사항") >= 0) {
             values.drawerId = "";
@@ -96,7 +95,11 @@ const NewCard = () => {
                                 selected="selected"
                                 value={standardForNewCard.drawerId}
                             >
-                                {standardForNewCard.name}
+                                [
+                                {standardForNewCard.allPublic
+                                    ? "공개"
+                                    : "비공개"}
+                                ] {standardForNewCard.name}
                             </option>
                         ) : (
                             <option value={null}>Drawer 선택(옵션)</option>
@@ -104,6 +107,7 @@ const NewCard = () => {
                         {drawerList.length &&
                             drawerList.map((drawer, index) => (
                                 <option key={index} value={drawer._id}>
+                                    [{drawer.allPublic ? "공개" : "비공개"}]{" "}
                                     {drawer.name}
                                 </option>
                             ))}

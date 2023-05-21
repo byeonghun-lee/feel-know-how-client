@@ -11,6 +11,7 @@ const drawerObj = {
     standardForNewCard: {
         name: null,
         drawerId: null,
+        allPublic: null,
     },
 };
 
@@ -31,15 +32,13 @@ const drawerSlice = createSlice({
         setStandardForNewCard(state, action) {
             state.standardForNewCard.name = action.payload.name || null;
             state.standardForNewCard.drawerId = action.payload.drawerId || null;
+            state.standardForNewCard.allPublic =
+                action.payload.allPublic || null;
         },
     },
 });
 
-export const {
-    getList,
-    getListSuccess,
-    getListFail,
-    setStandardForNewCard,
-} = drawerSlice.actions;
+export const { getList, getListSuccess, getListFail, setStandardForNewCard } =
+    drawerSlice.actions;
 
 export const drawerReducer = drawerSlice.reducer;

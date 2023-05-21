@@ -33,9 +33,12 @@ const SideBar = ({ isLogin }) => {
         ({ drawer }) => drawer.standardForNewCard
     );
 
-    const setActiveItem = ({ name, drawerId }) => {
-        sessionStorage.setItem("drawer", JSON.stringify({ name, drawerId }));
-        dispatch(setStandardForNewCard({ name, drawerId }));
+    const setActiveItem = ({ name, drawerId, allPublic }) => {
+        sessionStorage.setItem(
+            "drawer",
+            JSON.stringify({ name, drawerId, allPublic })
+        );
+        dispatch(setStandardForNewCard({ name, drawerId, allPublic }));
     };
 
     useEffect(() => {
@@ -102,6 +105,7 @@ const SideBar = ({ isLogin }) => {
                                           setActiveItem({
                                               name: drawer.name,
                                               drawerId: drawer._id,
+                                              allPublic: drawer.allPublic,
                                           })
                                       }
                                   >
