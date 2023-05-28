@@ -6,6 +6,8 @@ import Switch from "@material-ui/core/Switch";
 import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import { withStyles } from "@material-ui/core/styles";
 
+import CreatedTimeComponent from "components/createdTimeComponent/CreatedTimeComponent";
+
 import "./CardComponent.scss";
 
 const PurpleSwitch = withStyles({
@@ -61,6 +63,10 @@ const CardComponent = ({ cardInfo, onToggleReadStatus, isOwner }) => {
                                 })
                             }
                         />
+                    </li>
+                    <li>
+                        <h4>생성 날짜</h4>
+                        <CreatedTimeComponent time={cardInfo.createdAt} />
                     </li>
                 </ul>
                 {isOwner && (
