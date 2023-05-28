@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { logout } from "service/auth/authSlice";
 
 import "./SettingPage.scss";
@@ -26,6 +27,10 @@ const SettingPage = () => {
                 >
                     신청하기
                 </button>
+            </div>
+            <div>
+                <h3>이용 방법</h3>
+                <Link to="/how-to-use">보러가기</Link>
             </div>
             <button type="button" className="logout-btn" onClick={onLogout}>
                 로그아웃

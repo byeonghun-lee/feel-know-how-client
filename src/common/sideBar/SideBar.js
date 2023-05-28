@@ -16,6 +16,7 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
+import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
 
 import SideBarLink from "components/sideBarLink/SideBarLink";
 
@@ -173,6 +174,18 @@ const SideBar = ({ isLogin }) => {
             ) : (
                 <>
                     <ul className="non-login">
+                        <li>
+                            <SideBarLink
+                                to="/how-to-use"
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
+                                active={location.pathname === "/hot-to-use"}
+                            >
+                                <HelpOutlineOutlinedIcon className="category-icon" />
+                                <p>이용 방법</p>
+                            </SideBarLink>
+                        </li>
                         <li>
                             <SideBarLink
                                 to="/login"
