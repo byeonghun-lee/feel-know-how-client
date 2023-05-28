@@ -17,6 +17,7 @@
     h2 {
         font-size: 1.1rem;
         color: $gray-700;
+        margin-left: 0.4rem;
 
         @include mobile {
             font-size: 1.2rem;
@@ -25,6 +26,11 @@
 
     .title-area {
         margin-bottom: 1rem;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
     }
 
     .desc {

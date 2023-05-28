@@ -3,6 +3,9 @@ import { useLocation, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { isMobile } from "react-device-detect";
 
+import LockOutlined from "@material-ui/icons/LockOutlined";
+import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
+
 import AddCardBtn from "components/addCardBtn/AddCardBtn";
 import CardComponent from "components/cardComponent/CardComponent";
 
@@ -43,7 +46,14 @@ const Drawer = () => {
         <div className="drawer-page">
             <div className="drawer-contents">
                 <div className="title-area">
-                    <h2>{cardListPage.drawerName}</h2>
+                    <div className="title">
+                        {cardListPage.allPublic ? (
+                            <ShareOutlinedIcon />
+                        ) : (
+                            <LockOutlined />
+                        )}
+                        <h2>{cardListPage.drawerName}</h2>
+                    </div>
                     <p className="desc">{cardListPage.drawerDesc}</p>
                     <ul className="tag-list">
                         {cardListPage.tagList.map((tag, tagIndex) => (

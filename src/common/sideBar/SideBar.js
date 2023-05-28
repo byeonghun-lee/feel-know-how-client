@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setStandardForNewCard } from "service/drawer/drawerSlice";
 
 import AllInboxIcon from "@material-ui/icons/AllInbox";
-import InboxIcon from "@material-ui/icons/Inbox";
+import LockOutlined from "@material-ui/icons/LockOutlined";
 import AddTwoToneIcon from "@material-ui/icons/AddTwoTone";
 import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
@@ -122,7 +122,7 @@ const SideBar = ({ isLogin }) => {
                                           {drawer.allPublic ? (
                                               <ShareOutlinedIcon className="category-icon" />
                                           ) : (
-                                              <InboxIcon className="category-icon" />
+                                              <LockOutlined className="category-icon" />
                                           )}
                                           <p>{drawer.name}</p>
                                       </SideBarLink>
