@@ -13,6 +13,7 @@ import SettingPage from "settingPage/SettingPage";
 import Search from "search/Search";
 import DrawerList from "drawerList/DrawerList";
 import PrivacyPolicy from "privacyPolicy/PrivacyPolicy";
+import HowToUse from "howToUse/HowToUse";
 
 export default () => (
     <Switch>
@@ -53,6 +54,9 @@ export default () => (
         </Route>
         <Route path="/privacy-policy">
             <PrivacyPolicy />
+        </Route>
+        <Route path="/how-to-use">
+            <HowToUse />
         </Route>
     </Switch>
 );
