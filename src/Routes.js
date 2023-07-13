@@ -33,6 +33,9 @@ export default () => (
         <PrivateRoute exact path="/new-card">
             <NewCard />
         </PrivateRoute>
+        <PrivateRoute exact path="/edit-card">
+            <NewCard />
+        </PrivateRoute>
         <PrivateRoute exact path="/new-drawer">
             <NewDrawer />
         </PrivateRoute>

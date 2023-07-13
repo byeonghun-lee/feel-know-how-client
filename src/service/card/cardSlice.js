@@ -8,6 +8,7 @@ const cardObj = {
         cardList: [],
     },
     listError: null,
+    editedCard: null,
 };
 
 const cardSlice = createSlice({
@@ -40,6 +41,10 @@ const cardSlice = createSlice({
             const error = action.payload;
             state.listError = error;
         },
+        setEditCard(state, action) {
+            state.editedCard = null;
+            state.editedCard = action.payload;
+        },
     },
 });
 
@@ -51,6 +56,7 @@ export const {
     updateCardReadStatus,
     updateCardReadStatusSuccess,
     updateCardReadStatusFail,
+    setEditCard,
 } = cardSlice.actions;
 
 export const cardReducer = cardSlice.reducer;

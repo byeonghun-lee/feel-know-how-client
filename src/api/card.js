@@ -6,3 +6,5 @@ export const getCard = ({ nickname, drawerName }) =>
 export const getTempCard = ({ name }) => client.get(`/cards/temp?name=${name}`);
 export const updateCardReadStatus = (cardId) =>
     client.patch(`/cards/${cardId}/read-status`);
+export const updateCard = ({ cardId, cardObj }) =>
+    client.patch(`/cards/${cardId}`, cardObj);

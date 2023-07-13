@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Switch from "@material-ui/core/Switch";
 // import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
@@ -7,6 +9,8 @@ import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import { withStyles } from "@material-ui/core/styles";
 
 import CreatedTimeComponent from "components/createdTimeComponent/CreatedTimeComponent";
+
+import { setEditCard } from "service/card/cardSlice";
 
 import "./CardComponent.scss";
 
@@ -25,6 +29,15 @@ const PurpleSwitch = withStyles({
 })(Switch);
 
 const CardComponent = ({ cardInfo, onToggleReadStatus, isOwner }) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const onEdit = (e) => {
+        e.preventDefault();
+        dispatch(setEditCard(cardInfo));
+        history.push("/edit-card");
+    };
+
     return (
         <a
             className="card-component"
@@ -70,11 +83,14 @@ const CardComponent = ({ cardInfo, onToggleReadStatus, isOwner }) => {
                     </li>
                 </ul>
                 {isOwner && (
-                    <button type="button" className="edit-btn">
+                    <button
+                        type="button"
+                        className="edit-btn"
+                        onClick={(e) => onEdit(e)}
+                    >
                         수정
                     </button>
                 )}
-                {/* <p className="card-component-url">{cardInfo.url}</p> */}
             </div>
         </a>
     );
