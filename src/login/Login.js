@@ -16,7 +16,7 @@ const Login = () => {
     const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
-    const { register, handleSubmit, setError, errors } = useForm();
+    const { register, handleSubmit, setError, errors, clearErrors } = useForm();
 
     const [loginLoading, handleLoading] = useState(false);
     const [alertNeedLoginStatus, handleAlert] = useState(false);
@@ -96,6 +96,7 @@ const Login = () => {
                         ref={register({
                             required: true,
                         })}
+                        onFocus={() => clearErrors("loginError")}
                         className={cx({ error: errors.password })}
                         placeholder="Password"
                     />
