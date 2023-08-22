@@ -14,6 +14,7 @@ import Search from "search/Search";
 import DrawerList from "drawerList/DrawerList";
 import PrivacyPolicy from "privacyPolicy/PrivacyPolicy";
 import HowToUse from "howToUse/HowToUse";
+import ReadingList from "readingList/ReadingList";
 
 export default () => (
     <Switch>
@@ -41,6 +42,9 @@ export default () => (
         </PrivateRoute>
         <PrivateRoute path="/drawers">
             <DrawerList />
+        </PrivateRoute>
+        <PrivateRoute path="/read-today">
+            <ReadingList />
         </PrivateRoute>
         <PrivateRoute path="/in-box">
             <Drawer />

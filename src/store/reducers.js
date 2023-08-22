@@ -4,6 +4,7 @@ import { drawerReducer } from "service/drawer";
 import { cardReducer } from "service/card";
 import { bestMainReducer } from "service/bestMain";
 import { searchReducer } from "service/search";
+import { readingListReducer } from "service/readingList";
 
 export default combineReducers({
     auth: authReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
     card: cardReducer,
     bestMain: bestMainReducer,
     search: searchReducer,
+    readingList: readingListReducer,
 });

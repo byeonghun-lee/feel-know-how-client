@@ -17,6 +17,7 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
+import PlaylistAddCheckOutlinedIcon from "@material-ui/icons/PlaylistAddCheckOutlined";
 
 import SideBarLink from "components/sideBarLink/SideBarLink";
 
@@ -134,6 +135,16 @@ const SideBar = ({ isLogin }) => {
                     <h2>Default</h2>
                     <ul>
                         <li onClick={() => setActiveItem({})}>
+                            <SideBarLink
+                                to="/read-today"
+                                handleSideMenuStatusInMobile={
+                                    handleSideMenuStatusInMobile
+                                }
+                                active={location.pathname === "/read-today"}
+                            >
+                                <PlaylistAddCheckOutlinedIcon className="category-icon" />
+                                <p>Today</p>
+                            </SideBarLink>
                             <SideBarLink
                                 to="/in-box"
                                 handleSideMenuStatusInMobile={

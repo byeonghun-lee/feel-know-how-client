@@ -4,6 +4,7 @@ import { drawerSaga } from "service/drawer";
 import { cardSaga } from "service/card";
 import { bestMainSaga } from "service/bestMain";
 import { searchSaga } from "service/search";
+import { readingListSaga } from "service/readingList";
 
 export default function* rootSaga() {
     yield all([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
         cardSaga(),
         bestMainSaga(),
         searchSaga(),
+        readingListSaga(),
     ]);
 }
