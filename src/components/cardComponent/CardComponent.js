@@ -1,12 +1,15 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { createReadingItem as createReadingItemAPI } from "api/readingList";
 
 import Switch from "@material-ui/core/Switch";
 // import LinkRoundedIcon from "@material-ui/icons/LinkRounded";
 // import LaunchRoundedIcon from "@material-ui/icons/LaunchRounded";
 import OpenInNewRoundedIcon from "@material-ui/icons/OpenInNewRounded";
 import { withStyles } from "@material-ui/core/styles";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 import CreatedTimeComponent from "components/createdTimeComponent/CreatedTimeComponent";
 
@@ -31,11 +34,23 @@ const PurpleSwitch = withStyles({
 const CardComponent = ({ cardInfo, onToggleReadStatus, isOwner }) => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const [alertComplete, handleAlert] = useState(false);
+    const { pathname } = useLocation();
 
     const onEdit = (e) => {
         e.preventDefault();
         dispatch(setEditCard(cardInfo));
         history.push("/edit-card");
+    };
+
+    const addReadingList = async (e) => {
+        e.preventDefault();
+        try {
+            await createReadingItemAPI({ cardId: cardInfo._id });
+            handleAlert(true);
+        } catch (error) {
+            console.log("Add reading list error:", error);
+        }
     };
 
     return (
@@ -83,15 +98,35 @@ const CardComponent = ({ cardInfo, onToggleReadStatus, isOwner }) => {
                     </li>
                 </ul>
                 {isOwner && (
-                    <button
-                        type="button"
-                        className="edit-btn"
-                        onClick={(e) => onEdit(e)}
-                    >
-                        수정
-                    </button>
+                    <div className="owner-menus">
+                        {pathname !== "/read-today" && (
+                            <button
+                                type="button"
+                                className="owner-menu-btn add-today-btn"
+                                onClick={(e) => addReadingList(e)}
+                            >
+                                오늘 읽기에 추가
+                            </button>
+                        )}
+                        <button
+                            type="button"
+                            className="owner-menu-btn edit-btn"
+                            onClick={(e) => onEdit(e)}
+                        >
+                            수정
+                        </button>
+                    </div>
                 )}
             </div>
+            <Snackbar
+                open={alertComplete}
+                autoHideDuration={3000}
+                onClose={() => handleAlert(false)}
+            >
+                <MuiAlert elevation={10} variant="filled" severity="success">
+                    추가되었습니다.
+                </MuiAlert>
+            </Snackbar>
         </a>
     );
 };
