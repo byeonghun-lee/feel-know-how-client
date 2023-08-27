@@ -143,7 +143,7 @@ const SideBar = ({ isLogin }) => {
                                 active={location.pathname === "/read-today"}
                             >
                                 <PlaylistAddCheckOutlinedIcon className="category-icon" />
-                                <p>Today</p>
+                                <p>오늘 읽기</p>
                             </SideBarLink>
                             <SideBarLink
                                 to="/in-box"
@@ -153,7 +153,7 @@ const SideBar = ({ isLogin }) => {
                                 active={location.pathname === "/in-box"}
                             >
                                 <AllInboxIcon className="category-icon" />
-                                <p>InBox</p>
+                                <p>임시 보관</p>
                             </SideBarLink>
                         </li>
                         <li onClick={() => setActiveItem({})}>
@@ -165,7 +165,7 @@ const SideBar = ({ isLogin }) => {
                                 active={location.pathname === "/trash"}
                             >
                                 <DeleteForeverRoundedIcon className="category-icon" />
-                                <p>Trash</p>
+                                <p>휴지통</p>
                             </SideBarLink>
                         </li>
                         <li onClick={() => setActiveItem({})}>
@@ -177,7 +177,7 @@ const SideBar = ({ isLogin }) => {
                                 active={location.pathname === "/setting"}
                             >
                                 <SettingsRoundedIcon className="category-icon" />
-                                <p>Setting</p>
+                                <p>설정</p>
                             </SideBarLink>
                         </li>
                     </ul>

@@ -5,7 +5,7 @@ import cx from "classnames";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import AllInboxIcon from "@material-ui/icons/AllInbox";
-import InboxIcon from "@material-ui/icons/Inbox";
+import PlaylistAddCheckOutlinedIcon from "@material-ui/icons/PlaylistAddCheckOutlined";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 
 import "./MobileNavigation.scss";
@@ -48,13 +48,13 @@ const MobileNavigation = () => {
             <Link
                 className={cx("bar-item", {
                     active:
-                        location.pathname === "/in-box" ||
-                        location.search === "?return-page=in-box",
+                        location.pathname === "/read-today" ||
+                        location.search === "?return-page=read-today",
                 })}
-                to="/in-box"
+                to="/read-today"
             >
-                <InboxIcon />
-                <h2>Inbox</h2>
+                <PlaylistAddCheckOutlinedIcon />
+                <h2>오늘 읽기</h2>
             </Link>
             <Link
                 className={cx("bar-item", {
@@ -65,7 +65,7 @@ const MobileNavigation = () => {
                 to="/setting"
             >
                 <SettingsRoundedIcon />
-                <h2>Setting</h2>
+                <h2>설정</h2>
             </Link>
         </nav>
     );
