@@ -16,7 +16,7 @@
 
     h1 {
         font-size: 2rem;
-        color: $gray-50;
+        color: $gray-800;
         margin-bottom: 1rem;
 
         @include mobile {
@@ -104,5 +104,14 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+    }
+
+    .check-box-item {
+        display: flex;
+        align-items: center;
+    }
+
+    #drawer-all-public {
+        margin-right: 0.5rem;
     }
 }

@@ -4,18 +4,22 @@ import { useDispatch } from "react-redux";
 import { createDrawer as createDrawerAPI } from "api/drawer";
 import { getList } from "service/drawer/drawerSlice";
 
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+
 import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 
 import "./NewDrawer.scss";
 
 const NewDrawer = () => {
     const dispatch = useDispatch();
-    const { register, handleSubmit, errors, reset, trigger } = useForm({
+    const { register, handleSubmit, errors, reset, trigger, watch } = useForm({
         defaultValues: {
             allPublic: false,
         },
     });
     const [descLength, setDescLength] = useState(0);
+    const [alertComplete, handleAlert] = useState(false);
 
     const onSubmitDrawer = async (values) => {
         if (values.tags) {
@@ -25,6 +29,7 @@ const NewDrawer = () => {
         try {
             await createDrawerAPI(values);
             dispatch(getList());
+            handleAlert(true);
             reset();
         } catch (error) {
             console.log("error");
@@ -34,10 +39,10 @@ const NewDrawer = () => {
 
     return (
         <div className="new-drawer-page">
-            <h1>New Drawer</h1>
+            <h1>새로운 서랍 만들기</h1>
             <form onSubmit={handleSubmit(onSubmitDrawer)}>
                 <div>
-                    <label htmlFor="drawer-name">Name</label>
+                    <label htmlFor="drawer-name">이름</label>
                     <input
                         type="text"
                         id="drawer-name"
@@ -45,18 +50,18 @@ const NewDrawer = () => {
                         ref={register({ required: true })}
                     />
                     {errors.name && (
-                        <p className="err-msg">Drawer의 이름을 입력해주세요.</p>
+                        <p className="err-msg">서랍의 이름을 입력해주세요.</p>
                     )}
                 </div>
                 <div>
                     <label htmlFor="drawer-desc">
-                        Description
+                        설명
                         <span className="desc-length">{descLength}/140</span>
                     </label>
                     <textarea
                         name="desc"
                         id="drawer-desc"
-                        placeholder="Drawer를 설명해주세요."
+                        placeholder="서랍을 설명해주세요."
                         ref={register({ maxLength: 140 })}
                         onChange={(e) => setDescLength(e.target.value.length)}
                         onBlur={() => trigger("desc")}
@@ -69,12 +74,20 @@ const NewDrawer = () => {
                 </div>
                 <div className="row-item">
                     <label htmlFor="drawer-all-public">공개 여부:</label>
-                    <input
-                        type="checkbox"
-                        name="allPublic"
-                        id="drawer-all-public"
-                        ref={register}
-                    />
+                    <div className="check-box-item">
+                        <input
+                            type="checkbox"
+                            name="allPublic"
+                            id="drawer-all-public"
+                            ref={register}
+                        />
+                        <label
+                            htmlFor="drawer-all-public"
+                            className="fixed-text"
+                        >
+                            {watch("allPublic") ? "공개" : "비공개"}
+                        </label>
+                    </div>
                 </div>
                 <div>
                     <label htmlFor="drawer-tags">Tags:</label>
@@ -82,7 +95,7 @@ const NewDrawer = () => {
                         type="text"
                         id="drawer-tags"
                         name="tags"
-                        placeholder="dev, career, web"
+                        placeholder="육아, 돌잔치, 장난감"
                         ref={register({
                             validate: (value) =>
                                 value
@@ -99,6 +112,15 @@ const NewDrawer = () => {
                     <SubmitBtn />
                 </div>
             </form>
+            <Snackbar
+                open={alertComplete}
+                autoHideDuration={3000}
+                onClose={() => handleAlert(false)}
+            >
+                <MuiAlert elevation={10} variant="filled" severity="success">
+                    생성되었습니다.
+                </MuiAlert>
+            </Snackbar>
         </div>
     );
 };
