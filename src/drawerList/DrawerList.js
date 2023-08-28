@@ -27,7 +27,7 @@ const DrawerList = () => {
         <div className="drawer-list-page">
             <Link to="/new-drawer" className="move-to-new-drawer">
                 <AddTwoToneIcon className="add-drawer-icon" />
-                <h3>New Drawer</h3>
+                <h3>새로운 서랍 만들기</h3>
             </Link>
             {drawerList.length ? (
                 <ul className="drawer-list">

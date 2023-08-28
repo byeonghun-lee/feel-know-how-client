@@ -133,7 +133,7 @@ const NewCard = () => {
                     )}
                 </div>
                 <div className="select-drawer">
-                    <label htmlFor="drawer-name">Drawer 이름</label>
+                    <label htmlFor="drawer-name">서랍 이름</label>
                     <select
                         name="drawerId"
                         id="drawer-name"
@@ -152,7 +152,7 @@ const NewCard = () => {
                                 ] {standardForNewCard.name}
                             </option>
                         ) : (
-                            <option value={null}>Drawer 선택(옵션)</option>
+                            <option value={null}>서랍 선택(옵션)</option>
                         )}
                         {drawerList.length &&
                             drawerList.map((drawer, index) => (

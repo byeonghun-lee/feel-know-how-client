@@ -80,7 +80,7 @@ const SideBar = ({ isLogin }) => {
                         active={location.pathname === "/"}
                     >
                         <StarRoundedIcon className="best-list-icon" />
-                        <h3>Best Drawer</h3>
+                        <h3>Best 서랍</h3>
                     </SideBarLink>
                 </li>
                 <li onClick={() => setActiveItem({})}>
@@ -92,7 +92,7 @@ const SideBar = ({ isLogin }) => {
                         active={location.pathname === "/new-drawer"}
                     >
                         <AddTwoToneIcon className="add-drawer-icon" />
-                        <h3>New Drawer</h3>
+                        <h3>새로운 서랍 만들기</h3>
                     </SideBarLink>
                 </li>
             </ul>
@@ -132,7 +132,7 @@ const SideBar = ({ isLogin }) => {
                               ))
                             : ""}
                     </ul>
-                    <h2>Default</h2>
+                    <h2>기본</h2>
                     <ul>
                         <li onClick={() => setActiveItem({})}>
                             <SideBarLink

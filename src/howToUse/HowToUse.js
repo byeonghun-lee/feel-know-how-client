@@ -43,33 +43,32 @@ const HowToUse = () => {
             </p>
             <h3>처음 이용</h3>
             <p>
-                회원 가입 후 New Drawer로 새로운 Drawer를 만들 수 있습니다.
+                회원 가입 후 새로운 서랍을 만들 수 있습니다.
                 <br />
-                Purrgil Pin에서 저장하는 링크의 그룹을 Drawer라고 합니다.
+                Purrgil Pin에서 저장하는 링크의 그룹을 서랍라고 합니다.
                 <br />이 그룹은 링크의 정리를 도와주고 공개, 비공개 여부를
                 선택해서 다른 사람과 공유할지, 혼자만 볼지 정할 수 있습니다.
                 <br />
-                Tag를 추가하면 검색을 더욱 쉽게 해주고 같은 Tag를 추가한
-                Drawer를 찾을 수 있습니다.
+                Tag를 추가하면 검색을 더욱 쉽게 해주고 같은 Tag를 추가한 서랍을
+                찾을 수 있습니다.
             </p>
-            <img src={new_drawer} alt="Drawer 추가 화면" />
+            <img src={new_drawer} alt="서랍 추가 화면" />
             <h3>링크 추가(카드 추가)</h3>
             <p>
-                Drawer를 추가하면 링크를 추가 할 수 있습니다. Purrgil Pin에서
+                서랍을 추가하면 링크를 추가 할 수 있습니다. Purrgil Pin에서
                 링크는 하나의 카드로 생성됩니다.
                 <br />
-                카드에는 링크주소(URL)와 제목, 설명, 저장될 그룹(Drawer)를
-                설정할 수 있습니다.
+                카드에는 링크주소(URL)와 제목, 설명, 저장될 그룹(서랍)를 설정할
+                수 있습니다.
                 <br />
-                Drawer가 비공개라면 Card도 다른 사람이 볼 수 없습니다.
+                서랍이 비공개라면 Card도 다른 사람이 볼 수 없습니다.
                 <br />
-                링크 추가 페이지(https://www.ohmydrawer.com/new-card)에서
-                Drawer를 선택하지 않으면 기본 Drawer인 Inbox에 저장됩니다.
+                링크 추가 페이지(https://www.ohmydrawer.com/new-card)에서 서랍을
+                선택하지 않으면 기본 서랍인 Inbox에 저장됩니다.
             </p>
             <img src={new_card} alt="New Card 화면" />
             <p>
-                저장한 링크는 Drawer안에 저장이 되고 같이 저장한 정보가
-                나옵니다.
+                저장한 링크는 서랍 안에 저장이 되고 같이 저장한 정보가 나옵니다.
                 <br />
                 Card를 클릭하면 새로운 창에서 링크가 열리고 Card에 읽음 상태 옆
                 스위치 버튼으로 읽음 상태를 저장할 수 있습니다.

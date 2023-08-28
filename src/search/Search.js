@@ -59,7 +59,7 @@ const Search = () => {
             {isComplete && (
                 <>
                     <div className="searched-list-area">
-                        <h2>Drawer</h2>
+                        <h2>서랍</h2>
                         <ul>
                             {drawerList.length
                                 ? drawerList.map((drawer, drawerIndex) => (

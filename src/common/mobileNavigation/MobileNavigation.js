@@ -33,7 +33,7 @@ const MobileNavigation = () => {
                 to="/drawers"
             >
                 <AllInboxIcon />
-                <h2>Drawers</h2>
+                <h2>서랍</h2>
             </Link>
             <Link
                 className={cx("bar-item add-item", {
