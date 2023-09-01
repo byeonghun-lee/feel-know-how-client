@@ -13,7 +13,7 @@ import "./NewDrawer.scss";
 
 const NewDrawer = () => {
     const dispatch = useDispatch();
-    const { register, handleSubmit, errors, reset, trigger, watch } = useForm({
+    const { register, handleSubmit, errors, reset, trigger } = useForm({
         defaultValues: {
             allPublic: false,
         },
@@ -76,16 +76,30 @@ const NewDrawer = () => {
                     <label htmlFor="drawer-all-public">공개 여부:</label>
                     <div className="check-box-item">
                         <input
-                            type="checkbox"
+                            type="radio"
                             name="allPublic"
                             id="drawer-all-public"
+                            value="true"
                             ref={register}
                         />
                         <label
                             htmlFor="drawer-all-public"
                             className="fixed-text"
                         >
-                            {watch("allPublic") ? "공개" : "비공개"}
+                            공개
+                        </label>
+                        <input
+                            type="radio"
+                            name="allPublic"
+                            id="drawer-all-private"
+                            value="false"
+                            ref={register}
+                        />
+                        <label
+                            htmlFor="drawer-all-private"
+                            className="fixed-text"
+                        >
+                            비공개
                         </label>
                     </div>
                 </div>
