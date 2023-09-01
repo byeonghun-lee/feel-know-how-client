@@ -112,7 +112,7 @@ const SideBar = ({ isLogin }) => {
                                       }
                                   >
                                       <SideBarLink
-                                          to={`/@${nickname}/${drawer.name}`}
+                                          to={`/@${nickname}/${drawer.uniqueNameForUser}`}
                                           handleSideMenuStatusInMobile={
                                               handleSideMenuStatusInMobile
                                           }

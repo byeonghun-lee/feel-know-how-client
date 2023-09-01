@@ -18,7 +18,7 @@ import {
 import "./Drawer.scss";
 
 const Drawer = () => {
-    const { drawerName, nickname } = useParams();
+    const { drawerUniqueName, nickname } = useParams();
     const location = useLocation();
     const dispatch = useDispatch();
     const user = useSelector(({ auth }) => auth.info);
@@ -34,11 +34,11 @@ const Drawer = () => {
         if (user && location.pathname === "/in-box") {
             dispatch(getList({ drawerName: "inbox" }));
         } else {
-            dispatch(getList({ nickname, drawerName }));
+            dispatch(getList({ nickname, drawerUniqueName }));
         }
         return () => dispatch(resetList());
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [dispatch, drawerName]);
+    }, [dispatch, drawerUniqueName]);
 
     if (!cardListPage.drawerName) return null;
 

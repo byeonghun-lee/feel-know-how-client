@@ -26,7 +26,7 @@ export default () => (
         </Route>
         <Route path="/@:nickname">
             <Switch>
-                <Route exact path={`/@:nickname/:drawerName`}>
+                <Route exact path={`/@:nickname/:drawerUniqueName`}>
                     <Drawer />
                 </Route>
             </Switch>
