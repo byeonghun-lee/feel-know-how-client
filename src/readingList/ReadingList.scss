@@ -1,0 +1,12 @@
+@import "styles";
+
+.read-list-page {
+    .empty-list {
+        margin-top: 3%;
+        color: $gray-800;
+
+        p + p {
+            margin-top: 0.5rem;
+        }
+    }
+}
