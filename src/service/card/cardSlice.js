@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cardObj = {
     list: {
+        drawerId: null,
         drawerName: null,
         drawerDesc: null,
         tagList: [],
