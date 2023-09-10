@@ -84,6 +84,12 @@
     .title {
         display: flex;
         align-items: center;
+
+        .deleted-drawer-status {
+            font-size: 0.8rem;
+            margin-left: 0.4rem;
+            color: $red-500;
+        }
     }
 
     .desc {

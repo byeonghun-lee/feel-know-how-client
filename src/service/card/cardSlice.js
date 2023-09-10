@@ -5,6 +5,7 @@ const cardObj = {
         drawerId: null,
         drawerName: null,
         drawerDesc: null,
+        drawerToBeDeleted: false,
         tagList: [],
         cardList: [],
     },

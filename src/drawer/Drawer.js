@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { isMobile } from "react-device-detect";
 import { removeDrawer as removeDrawerAPI } from "api/drawer";
@@ -28,6 +28,7 @@ const Drawer = () => {
     const { drawerUniqueName, nickname } = useParams();
     const location = useLocation();
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(({ auth }) => auth.info);
     const cardListPage = useSelector(({ card }) => card.list);
 
@@ -44,7 +45,7 @@ const Drawer = () => {
         try {
             await removeDrawerAPI(drawerId);
             handleConfirmRemove(false);
-            // 새로 고침 또는 삭제 상태를 drawer에 표시해줌
+            history.go(0);
         } catch (error) {
             console.log("Remove drawer error:", error);
             // todo
@@ -75,7 +76,14 @@ const Drawer = () => {
                             ) : (
                                 <LockOutlined />
                             )}
-                            <h2>{cardListPage.drawerName}</h2>
+                            <h2>
+                                {cardListPage.drawerName}
+                                {cardListPage.drawerToBeDeleted && (
+                                    <span className="deleted-drawer-status">
+                                        (삭제됨)
+                                    </span>
+                                )}
+                            </h2>
                         </div>
                         <p className="desc">{cardListPage.drawerDesc}</p>
                         <ul className="tag-list">
