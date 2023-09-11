@@ -14,4 +14,9 @@
         width: 12rem;
         font-size: 1.2rem;
     }
+
+    &:disabled {
+        background-color: $gray-400;
+        cursor: not-allowed;
+    }
 }

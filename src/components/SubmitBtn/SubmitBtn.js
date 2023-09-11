@@ -2,8 +2,8 @@ import React from "react";
 
 import "./SubmitBtn.scss";
 
-const SubmitBtn = ({ text = "생성" }) => (
-    <button type="submit" className="submit-btn-component">
+const SubmitBtn = ({ text = "생성", disabled }) => (
+    <button type="submit" className="submit-btn-component" disabled={disabled}>
         {text}
     </button>
 );
