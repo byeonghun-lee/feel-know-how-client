@@ -21,6 +21,7 @@ import {
     resetList,
     updateCardReadStatus,
 } from "service/card/cardSlice";
+import { setEditDrawer } from "service/drawer/drawerSlice";
 
 import "./Drawer.scss";
 
@@ -51,6 +52,20 @@ const Drawer = () => {
             // todo
             // 에러 표시 토스트 띄우기
         }
+    };
+
+    const onEdit = () => {
+        dispatch(
+            setEditDrawer({
+                _id: cardListPage.drawerId,
+                name: cardListPage.drawerName,
+                desc: cardListPage.drawerDesc,
+                tags: cardListPage.tagList,
+                allPublic: cardListPage.allPublic,
+                nickname,
+            })
+        );
+        history.push("/edit-drawer");
     };
 
     useEffect(() => {
@@ -93,7 +108,11 @@ const Drawer = () => {
                         </ul>
                     </div>
                     <div className="action-area">
-                        <button type="button" className="edit-drawer-btn">
+                        <button
+                            type="button"
+                            className="edit-drawer-btn"
+                            onClick={onEdit}
+                        >
                             수정
                         </button>
                         <button

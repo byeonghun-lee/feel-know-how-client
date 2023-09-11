@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { createDrawer as createDrawerAPI } from "api/drawer";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
+import {
+    createDrawer as createDrawerAPI,
+    updateDrawer as updateDrawerAPI,
+} from "api/drawer";
 import { getList } from "service/drawer/drawerSlice";
 
 import Snackbar from "@material-ui/core/Snackbar";
@@ -12,14 +16,25 @@ import SubmitBtn from "components/SubmitBtn/SubmitBtn";
 import "./NewDrawer.scss";
 
 const NewDrawer = () => {
+    const location = useLocation();
+    const history = useHistory();
     const dispatch = useDispatch();
-    const { register, handleSubmit, errors, reset, trigger } = useForm({
-        defaultValues: {
-            allPublic: false,
-        },
-    });
+    const { register, handleSubmit, errors, reset, trigger, setValue } =
+        useForm({
+            defaultValues: {
+                allPublic: false,
+            },
+        });
     const [descLength, setDescLength] = useState(0);
     const [alertComplete, handleAlert] = useState(false);
+    const editDrawerInfo = useSelector(({ drawer }) => drawer.editedDrawer);
+    const isEditStatus = useMemo(() => {
+        if (location.pathname === "/edit-drawer") {
+            return true;
+        } else {
+            return false;
+        }
+    }, [location.pathname]);
 
     const onSubmitDrawer = async (values) => {
         if (values.tags) {
@@ -27,19 +42,51 @@ const NewDrawer = () => {
         }
 
         try {
-            await createDrawerAPI(values);
+            let result;
+            if (isEditStatus) {
+                result = await updateDrawerAPI({
+                    drawerId: editDrawerInfo._id,
+                    drawerObj: values,
+                });
+            } else {
+                await createDrawerAPI(values);
+            }
             dispatch(getList());
             handleAlert(true);
-            reset();
+
+            if (!isEditStatus) {
+                reset();
+            } else {
+                console.log("result", result);
+                setTimeout(() => {
+                    history.push(
+                        `/@${editDrawerInfo.nickname}/${result.data.uniqueNameForUser}`
+                    );
+                }, 500);
+            }
         } catch (error) {
             console.log("error");
             console.log(error);
         }
     };
 
+    useEffect(() => {
+        if (isEditStatus && !editDrawerInfo) {
+            history.goBack();
+            return;
+        }
+        if (isEditStatus) {
+            setValue("name", editDrawerInfo.name);
+            setValue("desc", editDrawerInfo.desc);
+            setValue("allPublic", editDrawerInfo.allPublic.toString());
+            setValue("tags", editDrawerInfo.tags);
+            setDescLength(editDrawerInfo.desc.length);
+        }
+    }, []);
+
     return (
         <div className="new-drawer-page">
-            <h1>새로운 서랍 만들기</h1>
+            <h1>{isEditStatus ? "서랍 업데이트" : "새로운 서랍 만들기"}</h1>
             <form onSubmit={handleSubmit(onSubmitDrawer)}>
                 <div>
                     <label htmlFor="drawer-name">이름</label>
@@ -123,7 +170,10 @@ const NewDrawer = () => {
                     <p>태그는 5글자를 넘길 수 없습니다.</p>
                 </div>
                 <div className="btn-area">
-                    <SubmitBtn />
+                    <SubmitBtn
+                        text={isEditStatus ? "수정" : "생성"}
+                        disabled={alertComplete}
+                    />
                 </div>
             </form>
             <Snackbar
@@ -132,7 +182,7 @@ const NewDrawer = () => {
                 onClose={() => handleAlert(false)}
             >
                 <MuiAlert elevation={10} variant="filled" severity="success">
-                    생성되었습니다.
+                    {isEditStatus ? "업데이트되었습니다." : "생성되었습니다."}
                 </MuiAlert>
             </Snackbar>
         </div>

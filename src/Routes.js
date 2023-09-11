@@ -40,6 +40,9 @@ export default () => (
         <PrivateRoute exact path="/new-drawer">
             <NewDrawer />
         </PrivateRoute>
+        <PrivateRoute exact path="/edit-drawer">
+            <NewDrawer />
+        </PrivateRoute>
         <PrivateRoute path="/drawers">
             <DrawerList />
         </PrivateRoute>
